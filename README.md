@@ -13,3 +13,6 @@
   git commit -m "You messager"<br>
   git push<br></b>
   
+-------------------------
+Если у тебя не установлен git, то вот ссылка:<br>
+https://git-scm.com/downloads
