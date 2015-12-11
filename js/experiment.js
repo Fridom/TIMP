@@ -44,3 +44,38 @@ $('body').keydown(function(evt) {
     }
     return false;
  });
+
+ i=0
+ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button1').find('img').each(function(a){
+    this.alt = i++
+ });
+
+i=0
+ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button2').find('img').each(function(a){
+    this.alt = i++
+ });
+
+ i=0
+ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button3').find('img').each(function(a){
+    this.alt = i++
+ });
+
+ i=0
+ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button4').find('img').each(function(a){
+    this.alt = i++
+ });
+
+ i=0
+ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button5').find('img').each(function(a){
+    this.alt = i++
+ });
+
+ i=0
+ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button6').find('img').each(function(a){
+    this.alt = i++
+ });
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').click(function(img) {
+    this.src = "images/"+this.alt+".png";
+
+});
