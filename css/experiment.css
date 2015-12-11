@@ -68,3 +68,7 @@
   -moz-transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
   transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
 }
+
+.button {
+width:44px; height:44px; margin: 0 1px 1px 0; float:left;
+}
