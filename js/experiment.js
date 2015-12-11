@@ -33,17 +33,14 @@ $('body').keydown(function(evt) {
     document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
 });
 
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').click(function() {
 
-    this.src = 'images/flag.jpg';
-  });
-
-  //document.getElementById('cube').oncontextmenu = function(e) {
-
-    //alert('Клик!');
-    //return false;
- // }
-
- $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').click(function(img) {
-    this.src = 'images/flag.jpg';
+ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').contextmenu(function(img) {
+    $path = this.src
+    if($path.indexOf('white.jpg') + 1){
+        this.src = 'images/flag.jpg';
+    }
+    if($path.indexOf('flag.jpg') + 1){
+        this.src = 'images/white.jpg';
+    }
+    return false;
  });
