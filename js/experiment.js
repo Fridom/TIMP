@@ -33,7 +33,17 @@ $('body').keydown(function(evt) {
     document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
 });
 
-document.body.children[0].oncontextmenu = function(e) {
-    alert('Клик!');
-    return false;
-  }
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').click(function() {
+
+    this.src = 'images/flag.jpg';
+  });
+
+  //document.getElementById('cube').oncontextmenu = function(e) {
+
+    //alert('Клик!');
+    //return false;
+ // }
+
+ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').click(function(img) {
+    this.src = 'images/flag.jpg';
+ });
