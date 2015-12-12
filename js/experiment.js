@@ -83,11 +83,6 @@ i=0
     this.alt = i++
  });
 
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').click(function(img) {
-    this.src = "images/"+this.alt+".png";
-
-});
-
 function randomMine(n){
     limit = [0,0,0,0,0,0];
     mineField = [[],[],[],[],[],[]];
@@ -107,9 +102,32 @@ function randomMine(n){
     mineField[a][b] = 9;
     limit[a]++;
     }
-    alert(mineField)
-    alert('\n')
-    alert(limit)
+    return(mineField)
 }
 
-randomMine(100)
+mineField = randomMine(100);
+
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button1').find('img').click(function(img) {
+    this.src = "images/"+mineField[0][this.alt]+".jpg";
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button2').find('img').click(function(img) {
+    this.src = "images/"+mineField[1][this.alt]+".jpg";
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button3').find('img').click(function(img) {
+    this.src = "images/"+mineField[2][this.alt]+".jpg";
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button4').find('img').click(function(img) {
+    this.src = "images/"+mineField[3][this.alt]+".jpg";
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button5').find('img').click(function(img) {
+    this.src = "images/"+mineField[4][this.alt]+".jpg";
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button6').find('img').click(function(img) {
+    this.src = "images/"+mineField[5][this.alt]+".jpg";
+});
