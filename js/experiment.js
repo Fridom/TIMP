@@ -26,7 +26,7 @@ $('body').keydown(function(evt) {
             evt.preventDefault();
             break;
         }
-
+        break;
         case 39: // right
             yAngle += 10;
             break;
@@ -37,6 +37,7 @@ $('body').keydown(function(evt) {
             evt.preventDefault();
             break;
         }
+        break;
     };
     document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
 });
