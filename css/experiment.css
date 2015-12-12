@@ -12,11 +12,11 @@
   margin: 100px auto;
   height: 400px;
   width: 400px;
-  -webkit-transition: -webkit-transform 0.2s linear;
+  -webkit-transition: -webkit-transform 0s linear;
   -webkit-transform-style: preserve-3d;
-  -moz-transition: -moz-transform 0.2s linear;
+  -moz-transition: -moz-transform 0s linear;
   -moz-transform-style: preserve-3d;
-  transition: transform 0.2s linear;
+  transition: transform 0s linear;
   transform-style: preserve-3d;
 }
 
@@ -37,30 +37,35 @@
   -webkit-transform: rotateX(90deg) translateZ(200px);
   -moz-transform: rotateX(90deg) translateZ(200px);
   transform: rotateX(90deg) translateZ(200px);
+  background-color: rgba(220, 220, 0, 3);
 }
 
 #cube .two {
   -webkit-transform: translateZ(200px);
   -moz-transform: translateZ(200px);
   transform: translateZ(200px);
+  background-color: rgba(220, 110, 10, 3);
 }
 
 #cube .three {
   -webkit-transform: rotateY(90deg) translateZ(200px);
   -moz-transform: rotateY(90deg) translateZ(200px);
   transform: rotateY(90deg) translateZ(200px);
+  background-color: rgba(70, 150, 80, 3);
 }
 
 #cube .four {
   -webkit-transform: rotateY(180deg) translateZ(200px);
   -moz-transform: rotateY(180deg) translateZ(200px);
   transform: rotateY(180deg) translateZ(200px);
+  background-color: rgba(200, 150, 170, 3);
 }
 
 #cube .five {
   -webkit-transform: rotateY(-90deg) translateZ(200px);
   -moz-transform: rotateY(-90deg) translateZ(200px);
   transform: rotateY(-90deg) translateZ(200px);
+  background-color: rgba(10, 230, 100, 3);
 }
 
 #cube .six {
@@ -71,22 +76,27 @@
 
 .button1 {
 width:44px; height:44px; margin: 0 1px 1px 0; float:left;
+  background-color: rgba(220, 220, 0, 3);
 }
 
 .button2 {
 width:44px; height:44px; margin: 0 1px 1px 0; float:left;
+background-color: rgba(220, 110, 10, 3);
 }
 
 .button3 {
 width:44px; height:44px; margin: 0 1px 1px 0; float:left;
+background-color: rgba(70, 150, 80, 3);
 }
 
 .button4 {
 width:44px; height:44px; margin: 0 1px 1px 0; float:left;
+background-color: rgba(200, 150, 170, 3);
 }
 
 .button5 {
 width:44px; height:44px; margin: 0 1px 1px 0; float:left;
+  background-color: rgba(10, 230, 100, 3);
 }
 
 .button6 {
