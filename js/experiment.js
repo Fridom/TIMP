@@ -17,18 +17,22 @@ $('body').keydown(function(evt) {
             break;
 
         case 38: // up
+        if (xAngle = 90) break;
             xAngle += 10;
             evt.preventDefault();
             break;
+        
 
         case 39: // right
             yAngle += 10;
             break;
 
         case 40: // down
+        if (xAngle != -90){
             xAngle -= 10;
             evt.preventDefault();
             break;
+        }
     };
     document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
 });
