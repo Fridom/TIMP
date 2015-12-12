@@ -9,6 +9,10 @@ for(var i = 0, l = props.length; i < l; i++) {
     }
 }
 
+function getRandomInt(min, max){
+    return Math.floor(Math.random() * (max-min+1)) + min;
+}
+
 var xAngle = 0, yAngle = 0;
 $('body').keydown(function(evt) {
     switch(evt.keyCode) {
@@ -83,3 +87,29 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img'
     this.src = "images/"+this.alt+".png";
 
 });
+
+function randomMine(n){
+    limit = [0,0,0,0,0,0];
+    mineField = [[],[],[],[],[],[]];
+    for (i=0;i<64;i++){
+        mineField[0].push(0);
+        mineField[1].push(0);
+        mineField[2].push(0);
+        mineField[3].push(0);
+        mineField[4].push(0);
+        mineField[5].push(0);
+    }
+    for (i=0;i<n;i++){
+        do{
+        a = getRandomInt(0, 5);
+        b = getRandomInt(0, 63);
+    } while (mineField[a][b] == 9 && limit[a] > n/4)
+    mineField[a][b] = 9;
+    limit[a]++;
+    }
+    alert(mineField)
+    alert('\n')
+    alert(limit)
+}
+
+randomMine(100)
