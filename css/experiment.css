@@ -24,12 +24,15 @@
   position: absolute;
   height: 360px;
   width: 360px;
-  padding: 20px;
+  padding: 15px;
   background-color: rgba(255, 255, 255, 3);
   font-size: 27px;
   line-height: 1em;
   color: #fff;
-  border: 1px solid #555;
+  border-left: 5px solid #adf;
+  border-right: 5px solid #adf;
+  border-top: 5px solid #d88;
+  border-bottom: 5px solid #d88;
   border-radius: 3px;
 }
 
@@ -37,66 +40,57 @@
   -webkit-transform: rotateX(90deg) translateZ(200px);
   -moz-transform: rotateX(90deg) translateZ(200px);
   transform: rotateX(90deg) translateZ(200px);
-  background-color: rgba(220, 220, 0, 3);
+  border: 5px solid #d88;
 }
 
 #cube .two {
   -webkit-transform: translateZ(200px);
   -moz-transform: translateZ(200px);
   transform: translateZ(200px);
-  background-color: rgba(220, 110, 10, 3);
 }
 
 #cube .three {
   -webkit-transform: rotateY(90deg) translateZ(200px);
   -moz-transform: rotateY(90deg) translateZ(200px);
   transform: rotateY(90deg) translateZ(200px);
-  background-color: rgba(70, 150, 80, 3);
 }
 
 #cube .four {
   -webkit-transform: rotateY(180deg) translateZ(200px);
   -moz-transform: rotateY(180deg) translateZ(200px);
   transform: rotateY(180deg) translateZ(200px);
-  background-color: rgba(200, 150, 170, 3);
 }
 
 #cube .five {
   -webkit-transform: rotateY(-90deg) translateZ(200px);
   -moz-transform: rotateY(-90deg) translateZ(200px);
   transform: rotateY(-90deg) translateZ(200px);
-  background-color: rgba(10, 230, 100, 3);
 }
 
 #cube .six {
   -webkit-transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
   -moz-transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
-  transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
+  transform: rotateX(-90deg) rotate(180deg) translateZ(195px);
+  border: 5px solid #d88;
 }
 
 .button1 {
-width:44px; height:44px; margin: 0 1px 1px 0; float:left;
-  background-color: rgba(220, 220, 0, 3);
-}
+width:44px; height:44px; margin: 0 1px 1px 0; float:left; }
 
 .button2 {
 width:44px; height:44px; margin: 0 1px 1px 0; float:left;
-background-color: rgba(220, 110, 10, 3);
 }
 
 .button3 {
 width:44px; height:44px; margin: 0 1px 1px 0; float:left;
-background-color: rgba(70, 150, 80, 3);
 }
 
 .button4 {
 width:44px; height:44px; margin: 0 1px 1px 0; float:left;
-background-color: rgba(200, 150, 170, 3);
 }
 
 .button5 {
 width:44px; height:44px; margin: 0 1px 1px 0; float:left;
-  background-color: rgba(10, 230, 100, 3);
 }
 
 .button6 {
