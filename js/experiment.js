@@ -21,11 +21,11 @@ $('body').keydown(function(evt) {
             break;
 
         case 38: // up
-        if (xAngle = 90) break;
+        if (xAngle != 90){
             xAngle += 10;
             evt.preventDefault();
             break;
-        
+        }
 
         case 39: // right
             yAngle += 10;
