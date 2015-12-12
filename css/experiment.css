@@ -24,7 +24,7 @@
   position: absolute;
   height: 360px;
   width: 360px;
-  padding: 15px;
+  padding: 1px;
   background-color: rgba(255, 255, 255, 3);
   font-size: 27px;
   line-height: 1em;
@@ -39,39 +39,39 @@
 #cube .one  {
   -webkit-transform: rotateX(90deg) translateZ(200px);
   -moz-transform: rotateX(90deg) translateZ(200px);
-  transform: rotateX(90deg) translateZ(200px);
+  transform: rotateX(90deg) translateZ(185px);
   border: 5px solid #d88;
 }
 
 #cube .two {
   -webkit-transform: translateZ(200px);
   -moz-transform: translateZ(200px);
-  transform: translateZ(200px);
+  transform: translateZ(185px);
 }
 
 #cube .three {
   -webkit-transform: rotateY(90deg) translateZ(200px);
   -moz-transform: rotateY(90deg) translateZ(200px);
-  transform: rotateY(90deg) translateZ(200px);
+  transform: rotateY(90deg) translateZ(185px);
 }
 
 #cube .four {
   -webkit-transform: rotateY(180deg) translateZ(200px);
   -moz-transform: rotateY(180deg) translateZ(200px);
-  transform: rotateY(180deg) translateZ(200px);
+  transform: rotateY(180deg) translateZ(185px);
 }
 
 #cube .five {
   -webkit-transform: rotateY(-90deg) translateZ(200px);
   -moz-transform: rotateY(-90deg) translateZ(200px);
-  transform: rotateY(-90deg) translateZ(200px);
+  transform: rotateY(-90deg) translateZ(185px);
 }
 
 #cube .six {
   -webkit-transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
   -moz-transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
-  transform: rotateX(-90deg) rotate(180deg) translateZ(195px);
-  border: 5px solid #d88;
+  transform: rotateX(-90deg) rotate(180deg) translateZ(185px);
+  border: 5px solid #d88; 
 }
 
 .button1 {
