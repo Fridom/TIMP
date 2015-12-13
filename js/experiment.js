@@ -14,7 +14,7 @@ function getRandomInt(min, max){
     return Math.floor(Math.random() * (max-min+1)) + min;
 }
 
-var xAngle = 0, yAngle = 0;
+var xAngle = 0, yAngle = -0;
 $('body').keydown(function(evt) {
     switch(evt.keyCode) {
         case 37: // left
@@ -112,7 +112,6 @@ function randomMine(n){
             }
         }
     }
-    alert(mineField);
     return(mineField)
 }
 
@@ -142,6 +141,32 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.but
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button6').find('img').click(function(img) {
     this.src = "images/"+mineField[5][this.alt]+".jpg";
 });
+
+// НЕ забудь удалить!!!
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button1').find('img').each(function(img) {
+    this.src = "images/"+mineField[0][this.alt]+".jpg";
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button2').find('img').each(function(img) {
+    this.src = "images/"+mineField[1][this.alt]+".jpg";
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button3').find('img').each(function(img) {
+    this.src = "images/"+mineField[2][this.alt]+".jpg";
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button4').find('img').each(function(img) {
+    this.src = "images/"+mineField[3][this.alt]+".jpg";
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button5').find('img').each(function(img) {
+    this.src = "images/"+mineField[4][this.alt]+".jpg";
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button6').find('img').each(function(img) {
+    this.src = "images/"+mineField[5][this.alt]+".jpg";
+});
+
 
 
 

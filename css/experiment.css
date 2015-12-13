@@ -12,11 +12,11 @@
   margin: 100px auto;
   height: 400px;
   width: 400px;
-  -webkit-transition: -webkit-transform 0s linear;
+  -webkit-transition: -webkit-transform 0.2s linear;
   -webkit-transform-style: preserve-3d;
-  -moz-transition: -moz-transform 0s linear;
+  -moz-transition: -moz-transform 0.2s linear;
   -moz-transform-style: preserve-3d;
-  transition: transform 0s linear;
+  transition: transform 0.2s linear;
   transform-style: preserve-3d;
 }
 
@@ -75,24 +75,24 @@
 }
 
 .button1 {
-width:44px; height:44px; margin: 0 1px 1px 0; float:left; }
+width:44px; height:44px; margin: 0 1px 1px 0; float:left; background-color:#000;} /*черный */
 
 .button2 {
-width:44px; height:44px; margin: 0 1px 1px 0; float:left;
+width:44px; height:44px; margin: 0 1px 1px 0; float:left; background-color:#00f; /* синий */
 }
 
 .button3 {
-width:44px; height:44px; margin: 0 1px 1px 0; float:left;
+width:44px; height:44px; margin: 0 1px 1px 0; float:left; background-color:#0f0; /* зеленый */ 
 }
 
 .button4 {
-width:44px; height:44px; margin: 0 1px 1px 0; float:left;
+width:44px; height:44px; margin: 0 1px 1px 0; float:left; background-color:#0ff; /* голубой */
 }
 
 .button5 {
-width:44px; height:44px; margin: 0 1px 1px 0; float:left;
+width:44px; height:44px; margin: 0 1px 1px 0; float:left; background-color:#f00; /* красный */
 }
 
 .button6 {
-width:44px; height:44px; margin: 0 1px 1px 0; float:left;
+width:44px; height:44px; margin: 0 1px 1px 0; float:left; background-color:#f0f; /*розовый */
 }
