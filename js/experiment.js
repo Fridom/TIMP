@@ -55,6 +55,17 @@ $('body').keydown(function(evt) {
     return false;
  });
 
+ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').contextmenu(function(img) {
+    $text = this.innerHTML
+    if($text.indexOf("white") + 1){
+        this.innerHTML = $text.replace('white', 'flag')
+    }
+    if($text.indexOf("flag") + 1){
+        this.innerHTML = $text.replace('flag', 'white')
+    }
+    return false
+ });
+
  i=0
  $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button1').find('img').each(function(a){
     this.alt = i++
@@ -142,30 +153,6 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.but
     this.src = "images/"+mineField[5][this.alt]+".jpg";
 });
 
-// НЕ забудь удалить!!!
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button1').find('img').each(function(img) {
-    this.src = "images/"+mineField[0][this.alt]+".jpg";
-});
-
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button2').find('img').each(function(img) {
-    this.src = "images/"+mineField[1][this.alt]+".jpg";
-});
-
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button3').find('img').each(function(img) {
-    this.src = "images/"+mineField[2][this.alt]+".jpg";
-});
-
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button4').find('img').each(function(img) {
-    this.src = "images/"+mineField[3][this.alt]+".jpg";
-});
-
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button5').find('img').each(function(img) {
-    this.src = "images/"+mineField[4][this.alt]+".jpg";
-});
-
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button6').find('img').each(function(img) {
-    this.src = "images/"+mineField[5][this.alt]+".jpg";
-});
 
 
 
