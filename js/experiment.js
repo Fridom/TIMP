@@ -124,7 +124,10 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
         $a = $a.substr(-1)
     }
     this.innerHTML = this.innerHTML.replace('white', mineField[0][$a])
-    if (mineField[0][$a] == 0) {openCell(0, $a);}
+    $a = parseInt($a, 10);
+    if (mineField[0][$a] == 0) {
+        openCell(0, $a);
+    }
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').click(function(img) {
@@ -133,7 +136,10 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
         $a = $a.substr(-1)
     }
     this.innerHTML = this.innerHTML.replace('white', mineField[1][$a])
-    if (mineField[1][$a] == 0) {openCell(1, $a);}
+    $a = parseInt($a, 10);
+    if (mineField[1][$a] == 0) {
+        openCell(1, $a);
+    }
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').click(function(img) {
@@ -142,7 +148,9 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
         $a = $a.substr(-1)
     }
     this.innerHTML = this.innerHTML.replace('white', mineField[2][$a])
-    if (mineField[2][$a] == 0) {openCell(2, $a);}
+    if (mineField[2][$a] == 0) {
+        openCell(2, $a);
+    }
     
 });
 
@@ -153,7 +161,9 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     
     }
     this.innerHTML = this.innerHTML.replace('white', mineField[3][$a])
-    if (mineField[3][$a] == 0) {openCell(3, $a);}
+    if (mineField[3][$a] == 0) {
+        openCell(3, $a);
+    }
     
 });
 
@@ -163,7 +173,9 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
         $a = $a.substr(-1)
     }
     this.innerHTML = this.innerHTML.replace('white', mineField[4][$a])
-    if (mineField[4][$a] == 0) {openCell(4, $a);}
+    if (mineField[4][$a] == 0) {
+        openCell(4, $a);
+    }
     
 });
 
@@ -173,7 +185,9 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
         $a = $a.substr(-1)
     }
     this.innerHTML = this.innerHTML.replace('white', mineField[5][$a])
-    if (mineField[5][$a] == 0) {openCell(5, $a);}
+    if (mineField[5][$a] == 0) {
+        openCell(5, $a);
+    }
     
 });
 /*
@@ -1020,7 +1034,7 @@ if ((I / N >> 0 != 0) && (I / N >> 0 != 7) && (I % N != 0) && (I % N != 7)) // Ð
 
 switch(K){
     case 0:
-    $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').find('img').each(function(){
+    $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').find('img').each(function(img){
         if (this.alt == I) {
             this.src = "images/"+mineField[0][this.alt]+".jpg";
             alert('asd');
@@ -1029,7 +1043,8 @@ switch(K){
     break;
 
     case 1:
-    $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').find('img').each(function(){
+    $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').find('img').each(function(img){
+        alert('asd');
         if (this.alt == I) {
             this.src = "images/"+mineField[1][this.alt]+".jpg";
             alert('asd');
@@ -1038,25 +1053,25 @@ switch(K){
     break;
 
     case 2:
-    $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').find('img').each(function(){
+    $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').find('img').each(function(img){
         if (this.alt == I) this.src = "images/"+mineField[2][this.alt]+".jpg";
     });
     break;
 
     case 3:
-    $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button4').find('img').each(function(){
+    $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button4').find('img').each(function(img){
         if (this.alt == I) this.src = "images/"+mineField[3][this.alt]+".jpg";
     });
     break;
 
     case 4:
-    $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button5').find('img').each(function(){
+    $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button5').find('img').each(function(img){
         if (this.alt == I) this.src = "images/"+mineField[4][this.alt]+".jpg";
     });
     break;
 
     case 5:
-    $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button6').find('img').each(function(){
+    $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button6').find('img').each(function(img){
         if (this.alt == I) this.src = "images/"+mineField[5][this.alt]+".jpg";
     });
     break;
