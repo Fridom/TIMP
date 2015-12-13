@@ -635,7 +635,6 @@ function openMe(K, I){
 
     case 1:
     $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').find('img').each(function(img){
-        alert('asd');
         if (this.alt == I) {
             this.src = "images/"+mineField[1][this.alt]+".jpg";
         }
