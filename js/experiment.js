@@ -44,17 +44,6 @@ $('body').keydown(function(evt) {
 });
 
 
- $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').contextmenu(function(img) {
-    $path = this.src
-    if($path.indexOf('white.jpg') + 1){
-        this.src = 'images/flag.jpg';
-    }
-    if($path.indexOf('flag.jpg') + 1){
-        this.src = 'images/white.jpg';
-    }
-    return false;
- });
-
  $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').contextmenu(function(img) {
     $text = this.innerHTML
     if($text.indexOf("white") + 1){
@@ -129,30 +118,54 @@ function randomMine(n){
 mineField = randomMine(100);
 
 
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button1').find('img').click(function(img) {
-    this.src = "images/"+mineField[0][this.alt]+".jpg";
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').click(function(img) {
+    $a = this.innerHTML.substr(-4,2);
+    if ($a.substr(0,1) == '\"'){
+        $a = $a.substr(-1)
+    }
+    this.innerHTML = this.innerHTML.replace('white', mineField[0][$a])
 });
 
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button2').find('img').click(function(img) {
-    this.src = "images/"+mineField[1][this.alt]+".jpg";
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').click(function(img) {
+    $a = this.innerHTML.substr(-4,2);
+    if ($a.substr(0,1) == '\"'){
+        $a = $a.substr(-1)
+    }
+    this.innerHTML = this.innerHTML.replace('white', mineField[1][$a])
 });
 
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button3').find('img').click(function(img) {
-    this.src = "images/"+mineField[2][this.alt]+".jpg";
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').click(function(img) {
+    $a = this.innerHTML.substr(-4,2);
+    if ($a.substr(0,1) == '\"'){
+        $a = $a.substr(-1)
+    }
+    this.innerHTML = this.innerHTML.replace('white', mineField[2][$a])
 });
 
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button4').find('img').click(function(img) {
-    this.src = "images/"+mineField[3][this.alt]+".jpg";
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button4').click(function(img) {
+    $a = this.innerHTML.substr(-4,2);
+    if ($a.substr(0,1) == '\"'){
+        $a = $a.substr(-1)
+    }
+    this.innerHTML = this.innerHTML.replace('white', mineField[3][$a])
 });
 
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button5').find('img').click(function(img) {
-    this.src = "images/"+mineField[4][this.alt]+".jpg";
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button5').click(function(img) {
+    $a = this.innerHTML.substr(-4,2);
+    if ($a.substr(0,1) == '\"'){
+        $a = $a.substr(-1)
+    }
+    this.innerHTML = this.innerHTML.replace('white', mineField[4][$a])
 });
 
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button6').find('img').click(function(img) {
-    this.src = "images/"+mineField[5][this.alt]+".jpg";
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button6').click(function(img) {
+    $a = this.innerHTML.substr(-4,2);
+    if ($a.substr(0,1) == '\"'){
+        $a = $a.substr(-1)
+    }
+    this.innerHTML = this.innerHTML.replace('white', mineField[5][$a])
 });
-
+/*
 //Это нужно удалить
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button1').find('img').each(function(img) {
     this.src = "images/"+mineField[0][this.alt]+".jpg";
@@ -177,7 +190,7 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.but
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button6').find('img').each(function(img) {
     this.src = "images/"+mineField[5][this.alt]+".jpg";
 });
-
+*/
 
 
 function mineCount (mineField, K, I)
