@@ -115,7 +115,9 @@ function randomMine(n){
     return(mineField)
 }
 
-mineField = randomMine(50);
+var $s = location.search;
+document.write($s.substr(1-$s.length))
+mineField = randomMine($s.substr(1-$s.length));
 
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').click(function(img) {

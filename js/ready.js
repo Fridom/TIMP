@@ -7,11 +7,13 @@ function setCookie( name, value, expires, path, domain, secure ) {
         ((secure)  ?  ";   secure"  :   "");
 }
 
-setCookie('number', $a, new Date( (new Date()).getTime() + ( 60 * 60 * 24 * 1000 ) ), '/');
+//setCookie('number', 'qwe', new Date( (new Date()).getTime() + ( 60 * 60 * 24 * 1000 ) ), '/');
 
-$('body').find('.design').click(function(img) {
+$('body').find('.design').click(function() {
     $a = document.getElementById('number').value
-    setCookie('number', $a, new Date( (new Date()).getTime() + ( 60 * 60 * 24 * 1000 ) ), '/');
+    //setCookie('number', $a, new Date( (new Date()).getTime() + ( 60 * 60 * 24 * 1000 ) ), '/');
+    var s = 'index.html?'+escape($a);
+    this.href=s;
 });
 
 
