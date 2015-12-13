@@ -623,13 +623,8 @@ function mineCount (mineField, K, I)
     return k;
 }
 
-function openCell (K, I)
-{
-    k = 0;
-    N = 8;
-    if (mineField[K][I] < 100){
-
-switch(K){
+function openMe(K, I){
+    switch(K){
     case 0:
     $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').find('img').each(function(img){
         if (this.alt == I) {
@@ -671,6 +666,15 @@ switch(K){
     });
     break;
 }
+}
+
+function openCell (K, I)
+{
+    k = 0;
+    N = 8;
+    if (mineField[K][I] < 100){
+
+openMe(K, I);
 mineField[K][I] += 100;
 
 if (I == 0) // (левый верхний угол одной стороны)
