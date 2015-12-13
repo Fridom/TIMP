@@ -43,25 +43,25 @@
   border: 5px solid #d88;
 }
 
-#cube .three {
+#cube .two {
   -webkit-transform: translateZ(200px);
   -moz-transform: translateZ(200px);
   transform: translateZ(185px);
 }
 
-#cube .four {
+#cube .three {
   -webkit-transform: rotateY(90deg) translateZ(200px);
   -moz-transform: rotateY(90deg) translateZ(200px);
   transform: rotateY(90deg) translateZ(185px);
 }
 
-#cube .five {
+#cube .four {
   -webkit-transform: rotateY(180deg) translateZ(200px);
   -moz-transform: rotateY(180deg) translateZ(200px);
   transform: rotateY(180deg) translateZ(185px);
 }
 
-#cube .two {
+#cube .five {
   -webkit-transform: rotateY(-90deg) translateZ(200px);
   -moz-transform: rotateY(-90deg) translateZ(200px);
   transform: rotateY(-90deg) translateZ(185px);
