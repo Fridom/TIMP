@@ -75,24 +75,24 @@
 }
 
 .button1 {
-width:44px; height:44px; margin: 0 1px 1px 0; float:left; background-color:#000;} /*черный */
+width:44px; height:44px; margin: 0 1px 1px 0; float:left;}
 
 .button2 {
-width:44px; height:44px; margin: 0 1px 1px 0; float:left; background-color:#00f; /* синий */
+width:44px; height:44px; margin: 0 1px 1px 0; float:left; 
 }
 
 .button3 {
-width:44px; height:44px; margin: 0 1px 1px 0; float:left; background-color:#0f0; /* зеленый */ 
+width:44px; height:44px; margin: 0 1px 1px 0; float:left; 
 }
 
 .button4 {
-width:44px; height:44px; margin: 0 1px 1px 0; float:left; background-color:#0ff; /* голубой */
+width:44px; height:44px; margin: 0 1px 1px 0; float:left; 
 }
 
 .button5 {
-width:44px; height:44px; margin: 0 1px 1px 0; float:left; background-color:#f00; /* красный */
+width:44px; height:44px; margin: 0 1px 1px 0; float:left;
 }
 
 .button6 {
-width:44px; height:44px; margin: 0 1px 1px 0; float:left; background-color:#f0f; /*розовый */
+width:44px; height:44px; margin: 0 1px 1px 0; float:left;
 }
