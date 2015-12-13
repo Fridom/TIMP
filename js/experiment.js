@@ -123,8 +123,8 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     if ($a.substr(0,1) == '\"'){
         $a = $a.substr(-1)
     }
-    if (mineField[0][$a] == 0) openCell(0, $a)
     this.innerHTML = this.innerHTML.replace('white', mineField[0][$a])
+    if (mineField[0][$a] == 0) {openCell(0, $a);}
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').click(function(img) {
@@ -132,8 +132,8 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     if ($a.substr(0,1) == '\"'){
         $a = $a.substr(-1)
     }
-    if (mineField[1][$a] == 0) openCell(1, $a)
     this.innerHTML = this.innerHTML.replace('white', mineField[1][$a])
+    if (mineField[1][$a] == 0) {openCell(1, $a);}
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').click(function(img) {
@@ -141,17 +141,20 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     if ($a.substr(0,1) == '\"'){
         $a = $a.substr(-1)
     }
-    if (mineField[2][$a] == 0) openCell(2, $a)
     this.innerHTML = this.innerHTML.replace('white', mineField[2][$a])
+    if (mineField[2][$a] == 0) {openCell(2, $a);}
+    
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button4').click(function(img) {
     $a = this.innerHTML.substr(-4,2);
     if ($a.substr(0,1) == '\"'){
         $a = $a.substr(-1)
+    
     }
-    if (mineField[3][$a] == 0) openCell(3, $a)
     this.innerHTML = this.innerHTML.replace('white', mineField[3][$a])
+    if (mineField[3][$a] == 0) {openCell(3, $a);}
+    
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button5').click(function(img) {
@@ -159,8 +162,9 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     if ($a.substr(0,1) == '\"'){
         $a = $a.substr(-1)
     }
-    if (mineField[4][$a] == 0) openCell(4, $a)
     this.innerHTML = this.innerHTML.replace('white', mineField[4][$a])
+    if (mineField[4][$a] == 0) {openCell(4, $a);}
+    
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button6').click(function(img) {
@@ -168,8 +172,9 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     if ($a.substr(0,1) == '\"'){
         $a = $a.substr(-1)
     }
-    if (mineField[5][$a] == 0) openCell(5, $a)
     this.innerHTML = this.innerHTML.replace('white', mineField[5][$a])
+    if (mineField[5][$a] == 0) {openCell(5, $a);}
+    
 });
 /*
 //Это нужно удалить
@@ -1016,14 +1021,19 @@ if ((I / N >> 0 != 0) && (I / N >> 0 != 7) && (I % N != 0) && (I % N != 7)) // �
 switch(K){
     case 0:
     $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').find('img').each(function(){
-        if (this.alt == I) this.src = "images/"+mineField[0][this.alt]+".jpg";
+        if (this.alt == I) {
+            this.src = "images/"+mineField[0][this.alt]+".jpg";
+            alert('asd');
+        }
     });
     break;
 
     case 1:
     $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').find('img').each(function(){
-        alert('asd')
-        if (this.alt == I) this.src = "images/"+mineField[1][this.alt]+".jpg";
+        if (this.alt == I) {
+            this.src = "images/"+mineField[1][this.alt]+".jpg";
+            alert('asd');
+        }
     });
     break;
 
