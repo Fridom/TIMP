@@ -1,6 +1,5 @@
 //$('body').find('.design').click(function() {
-    $('body').find('input:number').each(function(a){
-    	alert('ad');
-    	alert(a);
+    $('body').find('.design').click(function(a){
+    	alert($('body').find('input:number').text)
     });
 // });

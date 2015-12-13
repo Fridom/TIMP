@@ -153,7 +153,30 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.but
     this.src = "images/"+mineField[5][this.alt]+".jpg";
 });
 
+//Это нужно удалить
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button1').find('img').each(function(img) {
+    this.src = "images/"+mineField[0][this.alt]+".jpg";
+});
 
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button2').find('img').each(function(img) {
+    this.src = "images/"+mineField[1][this.alt]+".jpg";
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button3').find('img').each(function(img) {
+    this.src = "images/"+mineField[2][this.alt]+".jpg";
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button4').find('img').each(function(img) {
+    this.src = "images/"+mineField[3][this.alt]+".jpg";
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button5').find('img').each(function(img) {
+    this.src = "images/"+mineField[4][this.alt]+".jpg";
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button6').find('img').each(function(img) {
+    this.src = "images/"+mineField[5][this.alt]+".jpg";
+});
 
 
 
