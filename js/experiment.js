@@ -192,7 +192,6 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.but
 });
 */
 
-
 function mineCount (mineField, K, I)
 {
     k = 0;

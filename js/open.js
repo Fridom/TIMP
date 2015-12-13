@@ -403,5 +403,41 @@ if ((I / N >> 0 != 0) && (I / N >> 0 != 7) && (I % N != 0) && (I % N != 7)) // �
     if (mineField[K][I+N] == 0) openCell(K, I+N); // вниз
     if (mineField[K][I+N-1] == 0) openCell(K, I+N-1); // влево-вниз
 }
-return k;
+
+switch(K):{
+	case 0:
+	$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').find('img').each(function(){
+		if (this.alt == I) this.src = "images/"+mineField[0][this.alt]+".jpg";
+	});
+	break;
+
+	case 1:
+	$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').find('img').each(function(){
+		if (this.alt == I) this.src = "images/"+mineField[1][this.alt]+".jpg";
+	});
+	break;
+
+	case 2:
+	$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').find('img').each(function(){
+		if (this.alt == I) this.src = "images/"+mineField[2][this.alt]+".jpg";
+	});
+	break;
+
+	case 3:
+	$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button4').find('img').each(function(){
+		if (this.alt == I) this.src = "images/"+mineField[3][this.alt]+".jpg";
+	});
+	break;
+
+	case 4:
+	$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button5').find('img').each(function(){
+		if (this.alt == I) this.src = "images/"+mineField[4][this.alt]+".jpg";
+	});
+	break;
+
+	case 5:
+	$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button6').find('img').each(function(){
+		if (this.alt == I) this.src = "images/"+mineField[5][this.alt]+".jpg";
+	});
+	break;
 }
