@@ -107,7 +107,7 @@ function randomMine(n){
     }
     for(i=0;i<6;i++){
         for(j=0;j<64;j++){
-            if(mineField[i][j] == 0){
+            if(mineField[i][j] != 9){
                 mineField[i][j] = mineCount(mineField, i, j);
             }
         }
@@ -182,38 +182,38 @@ if (I == 0) // (левый верхний угол одной стороны)
     switch (K)
     {
         case 0:
-        if (mineField[1][0] == 9) k++; // влево
-        if (mineField[1][1] == 9) k++; // влево-вниз
-        if (mineField[4][N-1] == 9) k++; // вверх
-        if (mineField[4][N-2] == 9) k++; // вверх вправо
+        if (mineField[4][0] == 9) k++; // влево
+        if (mineField[4][1] == 9) k++; // влево-вниз
+        if (mineField[3][N-1] == 9) k++; // вверх
+        if (mineField[3][N-2] == 9) k++; // вверх вправо
         break;
 
         case 1:
         if (mineField[4][N-1] == 9) k++; // влево
         if (mineField[4][2*N-1] == 9) k++; // влево-вниз
-        if (mineField[0][0] == 9) k++; // вверх
-        if (mineField[0][N] == 9) k++; // вверх вправо
+        if (mineField[0][N*(N-1)] == 9) k++; // вверх 
+        if (mineField[0][N*(N-1)+1] == 9) k++; // вверх вправо 
         break;
 
         case 2:
         if (mineField[1][N-1] == 9) k++; // влево
         if (mineField[1][2*N-1] == 9) k++; // влево-вниз
-        if (mineField[0][N*(N-1)] == 9) k++; // вверх
-        if (mineField[0][N*(N-1)+1] == 9) k++; // вверх вправо
+        if (mineField[0][N*N-1] == 9) k++; // вверх
+        if (mineField[0][N*(N-1)-1] == 9) k++; // вверх вправо
         break;
          
         case 3:
         if (mineField[2][N-1] == 9) k++; // влево
         if (mineField[2][2*N-1] == 9) k++; // влево-вниз
-        if (mineField[0][N*N-1] == 9) k++; // вверх
-        if (mineField[0][N*(N-1)-1] == 9) k++; // вверх вправо
+        if (mineField[0][N-1] == 9) k++; // вверх
+        if (mineField[0][N-2] == 9) k++; // вверх вправо
         break;
         
         case 4:
         if (mineField[3][N-1] == 9) k++; // влево
         if (mineField[3][2*N-1] == 9) k++; // влево-вниз
-        if (mineField[0][N-1] == 9) k++; // вверх
-        if (mineField[0][N-2] == 9) k++; // вверх вправо
+        if (mineField[0][0] == 9) k++; // вверх
+        if (mineField[0][N] == 9) k++; // вверх вправо
         break;
         
         case 5:
@@ -233,38 +233,38 @@ if (I == N-1) // (правый верхний угол одной стороны
     switch (K)
     {
         case 0:
-        if (mineField[3][N-1] == 9) k++; // вправо
-        if (mineField[3][N-2] == 9) k++; // вправо-вниз
-        if (mineField[4][0] == 9) k++; // вверх
-        if (mineField[4][1] == 9) k++; // вверх-влево
+        if (mineField[2][N-1] == 9) k++; // вправо
+        if (mineField[2][N-2] == 9) k++; // вправо-вниз
+        if (mineField[3][0] == 9) k++; // вверх
+        if (mineField[3][1] == 9) k++; // вверх-влево
         break;
 
         case 1:
         if (mineField[2][0] == 9) k++; // вправо
         if (mineField[2][N] == 9) k++; // вправо-вниз
-        if (mineField[0][N*(N-1)] == 9) k++; // вверх
-        if (mineField[0][N*(N-2)] == 9) k++; // вверх-влево
+        if (mineField[0][N*N-1] == 9) k++; // вверх 
+        if (mineField[0][N*N-2] == 9) k++; // вверх-влево 
         break;
 
         case 2:
         if (mineField[3][0] == 9) k++; // вправо
         if (mineField[3][N] == 9) k++; // вправо-вниз
-        if (mineField[0][N*N-1] == 9) k++; // вверх
-        if (mineField[0][N*N-2] == 9) k++; // вверх-влево
+        if (mineField[0][N-1] == 9) k++; // вверх
+        if (mineField[0][2*N-1] == 9) k++; // вверх-влево
         break;
          
         case 3:
         if (mineField[4][0] == 9) k++; // вправо
         if (mineField[4][N] == 9) k++; // вправо-вниз
-        if (mineField[0][N-1] == 9) k++; // вверх
-        if (mineField[0][2*N-1] == 9) k++; // вверх-влево
+        if (mineField[0][0] == 9) k++; // вверх
+        if (mineField[0][1] == 9) k++; // вверх-влево
         break;
         
         case 4:
         if (mineField[1][0] == 9) k++; // вправо
         if (mineField[1][N] == 9) k++; // вправо-вниз
-        if (mineField[0][0] == 9) k++; // вверх
-        if (mineField[0][1] == 9) k++; // вверх-влево
+        if (mineField[0][N*(N-1)] == 9) k++; // вверх
+        if (mineField[0][N*(N-2)] == 9) k++; // вверх-влево
         break;
         
         case 5:
@@ -284,10 +284,10 @@ if (I == N*(N-1)) // (левый нижний угол одной стороны
     switch (K)
     {
         case 0:
-        if (mineField[1][N-2] == 9) k++; // влево-сверху
-        if (mineField[1][N-1] == 9) k++; // влево
-        if (mineField[2][0] == 9) k++; // вниз
-        if (mineField[2][1] == 9) k++; // вниз-вправо
+        if (mineField[4][N-2] == 9) k++; // влево-сверху
+        if (mineField[4][N-1] == 9) k++; // влево
+        if (mineField[1][0] == 9) k++; // вниз
+        if (mineField[1][1] == 9) k++; // вниз-вправо
         break;
 
         case 1:
@@ -335,10 +335,10 @@ if (I == N*N-1) // (правый нижний угол одной стороны
     switch (K)
     {
         case 0:
-        if (mineField[3][1] == 9) k++; // вправо-вверх
-        if (mineField[3][0] == 9) k++; // вправо
-        if (mineField[2][N-1] == 9) k++; // вниз
-        if (mineField[2][N-2] == 9) k++; // вниз-влево
+        if (mineField[2][1] == 9) k++; // вправо-вверх
+        if (mineField[2][0] == 9) k++; // вправо
+        if (mineField[1][N-1] == 9) k++; // вниз
+        if (mineField[1][N-2] == 9) k++; // вниз-влево
         break;
 
         case 1:
@@ -378,7 +378,7 @@ if (I == N*N-1) // (правый нижний угол одной стороны
     } 
 }
 
-if ((I / N == 0) && (I != 0) && (I != N-1)) // верхняя грань
+if ((I / N >> 0 == 0) && (I != 0) && (I != N-1)) // верхняя грань
 {
     if (mineField[K][I-1] == 9) k++; // влево
     if (mineField[K][I+1] == 9) k++; // вправо
@@ -388,33 +388,33 @@ if ((I / N == 0) && (I != 0) && (I != N-1)) // верхняя грань
     switch (K)
     {
         case 0:
-        if (mineField[4][N-I] == 9) k++; // влево-вверх
-        if (mineField[4][N-I-1] == 9) k++; // вверх
-        if (mineField[4][N-I-2] == 9) k++; // вверх-вправо
+        if (mineField[3][N-I] == 9) k++; // влево-вверх
+        if (mineField[3][N-I-1] == 9) k++; // вверх
+        if (mineField[3][N-I-2] == 9) k++; // вверх-вправо
         break;
 
         case 1:
-        if (mineField[0][N*(I-1)] == 9) k++; // влево-вверх
-        if (mineField[0][N*I] == 9) k++; // вверх
-        if (mineField[0][N*(I+1)] == 9) k++; // вверх-вправо
-        break;
-
-        case 2:
         if (mineField[0][N*(N-1)+I-1] == 9) k++; // влево-вверх
         if (mineField[0][N*(N-1)+I] == 9) k++; // вверх
         if (mineField[0][N*(N-1)+I+1] == 9) k++; // вверх-вправо
         break;
-         
-        case 3:
+
+        case 2:
         if (mineField[0][N*(N-I+1)-1] == 9) k++; // влево-вверх
         if (mineField[0][N*(N-I)-1] == 9) k++; // вверх
         if (mineField[0][N*(N-I-1)-1] == 9) k++; // вверх-вправо
         break;
+         
+        case 3:
+        if (mineField[0][N-I] == 9) k++; // влево-вверх 
+        if (mineField[0][N-I-1] == 9) k++; // вверх 
+        if (mineField[0][N-I-2] == 9) k++; // вверх-вправо 
+        break;
         
         case 4:
-        if (mineField[0][N-I] == 9) k++; // влево-вверх
-        if (mineField[0][N-I-1] == 9) k++; // вверх
-        if (mineField[0][N-I-2] == 9) k++; // вверх-вправо
+        if (mineField[0][N*(I-1)] == 9) k++; // влево-вверх
+        if (mineField[0][N*I] == 9) k++; // вверх
+        if (mineField[0][N*(I+1)] == 9) k++; // вверх-вправо
         break;
         
         case 5:
@@ -435,9 +435,9 @@ if ((I % N == 0) && (I != 0) && (I != N*(N-1))) // левая грань
     switch (K)
     {
         case 0:
-        if (mineField[1][(I / N)-1] == 9) k++; // влево-вверх
-        if (mineField[1][(I / N)] == 9) k++; // влево
-        if (mineField[1][(I / N)+1] == 9) k++; // влево-вниз
+        if (mineField[4][(I / N >> 0)-1] == 9) k++; // влево-вверх
+        if (mineField[4][(I / N >> 0)] == 9) k++; // влево
+        if (mineField[4][(I / N >> 0)+1] == 9) k++; // влево-вниз
         break;
 
         case 1:
@@ -465,9 +465,9 @@ if ((I % N == 0) && (I != 0) && (I != N*(N-1))) // левая грань
         break;
         
         case 5:
-        if (mineField[2][N*N-(I / N)] == 9) k++; // влево-вверх
-        if (mineField[2][N*N-1-(I / N)] == 9) k++; // влево
-        if (mineField[2][N*N-2-(I / N)] == 9) k++; // влево-вниз
+        if (mineField[2][N*N-(I / N >> 0)] == 9) k++; // влево-вверх
+        if (mineField[2][N*N-1-(I / N >> 0)] == 9) k++; // влево
+        if (mineField[2][N*N-2-(I / N >> 0)] == 9) k++; // влево-вниз
         break;
     } 
 }
@@ -482,44 +482,43 @@ if ((I % N == N-1) && (I != N-1) && (I != N*N-1)) // правая грань
     switch (K)
     {
         case 0:
-        if (mineField[3][N-(I / N)] == 9) k++; // вправо-вверх
-        if (mineField[3][N-1-(I / N)] == 9) k++; // вправо
-        if (mineField[3][N-2-(I / N)+1] == 9) k++; // вправо-вниз
+        if (mineField[2][N-(I / N >> 0)] == 9) k++; // вправо-вверх
+        if (mineField[2][N-1-(I / N >> 0)] == 9) k++; // вправо
+        if (mineField[2][N-2-(I / N >> 0)] == 9) k++; // вправо-вниз
         break;
 
         case 1:
-        if (mineField[2][N*((I / N)-1)] == 9) k++; // вправо-вверх
-        if (mineField[2][N*(I / N)] == 9) k++; // вправо
-        if (mineField[2][N*((I / N)+1)] == 9) k++; // вправо-вниз
+        if (mineField[2][N*((I / N >> 0)-1)] == 9) k++; // вправо-вверх
+        if (mineField[2][N*(I / N >> 0)] == 9) k++; // вправо
+        if (mineField[2][N*((I / N >> 0)+1)] == 9) k++; // вправо-вниз
         break;
 
         case 2:
-        if (mineField[3][N*((I / N)-1)] == 9) k++; // вправо-вверх
-        if (mineField[3][N*(I / N)] == 9) k++; // вправо
-        if (mineField[3][N*((I / N)+1)] == 9) k++; // вправо-вниз
+        if (mineField[3][N*((I / N >> 0)-1)] == 9) k++; // вправо-вверх
+        if (mineField[3][N*(I / N >> 0)] == 9) k++; // вправо
+        if (mineField[3][N*((I / N >> 0)+1)] == 9) k++; // вправо-вниз
         break;
          
         case 3:
-        if (mineField[4][N*((I / N)-1)] == 9) k++; // вправо-вверх
-        if (mineField[4][N*(I / N)] == 9) k++; // вправо
-        if (mineField[4][N*((I / N)+1)] == 9) k++; // вправо-вниз
+        if (mineField[4][N*((I / N >> 0)-1)] == 9) k++; // вправо-вверх
+        if (mineField[4][N*(I / N >> 0)] == 9) k++; // вправо
+        if (mineField[4][N*((I / N >> 0)+1)] == 9) k++; // вправо-вниз
         break;
         
         case 4:
-        if (mineField[1][N*((I / N)-1)] == 9) k++; // вправо-вверх
-        if (mineField[1][N*(I / N)] == 9) k++; // вправо
-        if (mineField[1][N*((I / N)+1)] == 9) k++; // вправо-вниз
+        if (mineField[1][N*((I / N >> 0)-1)] == 9) k++; // вправо-вверх
+        if (mineField[1][N*(I / N >> 0)] == 9) k++; // вправо
+        if (mineField[1][N*((I / N >> 0)+1)] == 9) k++; // вправо-вниз
         break;
         
         case 5:
-        if (mineField[2][N*(N-1)+(I / N)-1] == 9) k++; // вправо-вверх
-        if (mineField[2][N*(N-1)+(I / N)] == 9) k++; // вправо
-        if (mineField[2][N*(N-1)+(I / N)+1] == 9) k++; // вправо-вниз
+        if (mineField[4][N*(N-1)+(I / N >> 0)-1] == 9) k++; // вправо-вверх
+        if (mineField[4][N*(N-1)+(I / N >> 0)] == 9) k++; // вправо
+        if (mineField[4][N*(N-1)+(I / N >> 0)+1] == 9) k++; // вправо-вниз
         break;
     } 
 }
-
-if ((I % N == N-1) && (I != N-1) && (I != N*N-1)) // нижняя грань
+if ((I / N >> 0 == 7) && (I != N*(N-1)) && (I != N*N-1)) // нижняя грань
 {
     if (mineField[K][I-1] == 9) k++; // влево
     if (mineField[K][I-N-1] == 9) k++; // влево-вверх
@@ -529,9 +528,9 @@ if ((I % N == N-1) && (I != N-1) && (I != N*N-1)) // нижняя грань
     switch (K)
     {
         case 0:
-        if (mineField[2][(I % N)-1] == 9) k++; // вниз-влево
-        if (mineField[2][(I % N)] == 9) k++; // вниз
-        if (mineField[2][(I % N)+1] == 9) k++; // вниз-вправо
+        if (mineField[1][(I % N)-1] == 9) k++; // вниз-влево
+        if (mineField[1][(I % N)] == 9) k++; // вниз
+        if (mineField[1][(I % N)+1] == 9) k++; // вниз-вправо
         break;
 
         case 1:
@@ -565,7 +564,7 @@ if ((I % N == N-1) && (I != N-1) && (I != N*N-1)) // нижняя грань
         break;
     } 
 }
-if ((I / N != 0) && (I / N != 7) && (I % N != 0) && (I % N != 7))
+if ((I / N >> 0 != 0) && (I / N >> 0 != 7) && (I % N != 0) && (I % N != 7)) // не граничный случай
 {
     if (mineField[K][I-1] == 9) k++; // влево
     if (mineField[K][I-1-N] == 9) k++; // влево-вверх
