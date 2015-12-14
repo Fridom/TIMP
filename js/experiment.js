@@ -672,8 +672,6 @@ function openCell (K, I)
 {
     N = 8;
     openMe(K, I);
-    setTimeout(function()
-    {
     if (mineField[K][I] == 0)
     {
         mineField[K][I] += 100;
@@ -1069,16 +1067,14 @@ function openCell (K, I)
         }
         if ((I / N >> 0 != 0) && (I / N >> 0 != 7) && (I % N != 0) && (I % N != 7)) // не граничный случай
         {
-            alert("Opening center, " + K + " " + I + " " + mineField[K][I+N]) + " " + I+N);
-            openCell(K, I+N+1); // вправо-вниз
-            openCell(K, I+N); // вниз
-            openCell(K, I+N-1); // влево-вниз
+            openCell(K, I-(-N)+1); // вправо-вниз
+            openCell(K, I-(-N)); // вниз
+            openCell(K, I-(-N)-1); // влево-вниз
             openCell(K, I-1); // влево
             openCell(K, I-1-N); // влево-вверх
             openCell(K, I-N); // вверх
             openCell(K, I-N+1); // вправо-вверх
-            openCell(K, I+1); // вправо
+            openCell(K, I-(-1)); // вправо
         }
     }
-    }, 2000);
 }
