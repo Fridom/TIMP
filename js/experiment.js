@@ -116,7 +116,6 @@ function randomMine(n){
 }
 
 var $s = location.search;
-document.write($s.substr(1-$s.length))
 mineField = randomMine($s.substr(1-$s.length));
 
 
@@ -1068,14 +1067,14 @@ function openCell (K, I)
         }
         if ((I / N >> 0 != 0) && (I / N >> 0 != 7) && (I % N != 0) && (I % N != 7)) // не граничный случай
         {
+            openCell(K, I-(-N)+1); // вправо-вниз
+            openCell(K, I-(-N)); // вниз
+            openCell(K, I-(-N)-1); // влево-вниз
             openCell(K, I-1); // влево
             openCell(K, I-1-N); // влево-вверх
             openCell(K, I-N); // вверх
             openCell(K, I-N+1); // вправо-вверх
-            openCell(K, I+1); // вправо
-            openCell(K, I+N+1); // вправо-вниз
-            openCell(K, I+N); // вниз
-            openCell(K, I+N-1); // влево-вниз
+            openCell(K, I-(-1)); // вправо
         }
     }
 }
