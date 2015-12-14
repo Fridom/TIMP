@@ -19,5 +19,8 @@ $('body').find('.design').click(function() {
     this.href=s;
 });
 
+document.getElementById('one').disabled = true;
 
-
+$('body').find('#one').click(function(){
+	alert('asd');
+});
