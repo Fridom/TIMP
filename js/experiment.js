@@ -507,9 +507,9 @@ function mineCount (mineField, K, I)
             break;
 
             case 1:
-            if (mineField[0][N*(N-1)+I-1] == 9) k++; // влево-вверх
-            if (mineField[0][N*(N-1)+I] == 9) k++; // вверх
-            if (mineField[0][N*(N-1)+I+1] == 9) k++; // вверх-вправо
+            if (mineField[0][N*(N-1)-(-I)-1] == 9) k++; // влево-вверх
+            if (mineField[0][N*(N-1)-(-I)] == 9) k++; // вверх
+            if (mineField[0][N*(N-1)-(-I)+1] == 9) k++; // вверх-вправо
             break;
 
             case 2:
@@ -531,9 +531,9 @@ function mineCount (mineField, K, I)
             break;
             
             case 5:
-            if (mineField[3][N*(N-1)+I-1] == 9) k++; // влево-вверх
-            if (mineField[3][N*(N-1)+I] == 9) k++; // вверх
-            if (mineField[3][N*(N-1)+I+1] == 9) k++; // вверх-вправо
+            if (mineField[3][N*(N-1)-(-I)-1] == 9) k++; // влево-вверх
+            if (mineField[3][N*(N-1)-(-I)] == 9) k++; // вверх
+            if (mineField[3][N*(N-1)-(-I)+1] == 9) k++; // вверх-вправо
             break;
         } 
     }
@@ -962,9 +962,9 @@ function openCell (K, I)
                 break;
 
                 case 1:
-                openCell(0, N*(N-1)+I-1); // влево-вверх
-                openCell(0, N*(N-1)+I); // вверх
-                openCell(0, N*(N-1)+I+1); // вверх-вправо
+                openCell(0, N*(N-1)-(-I)-1); // влево-вверх
+                openCell(0, N*(N-1)-(-I)); // вверх
+                openCell(0, N*(N-1)-(-I)+1); // вверх-вправо
                 break;
 
                 case 2:
@@ -986,9 +986,9 @@ function openCell (K, I)
                 break;
                 
                 case 5:
-                openCell(3, N*(N-1)+I-1); // влево-вверх
-                openCell(3, N*(N-1)+I); // вверх
-                openCell(3, N*(N-1)+I+1); // вверх-вправо
+                openCell(3, N*(N-1)-(-I)-1); // влево-вверх
+                openCell(3, N*(N-1)-(-I)); // вверх
+                openCell(3, N*(N-1)-(-I)+1); // вверх-вправо
                 break;
             } 
         }
