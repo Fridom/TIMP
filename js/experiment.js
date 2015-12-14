@@ -883,9 +883,9 @@ function openCell (K, I)
         {
             openCell(K, I-1); // влево
             openCell(K, I+1); // вправо
-            openCell(K, I+N+1); // вправо-вниз
-            openCell(K, I+N); // вниз
-            openCell(K, I+N-1); // влево-вниз
+            openCell(K, I-(-N)+1); // вправо-вниз
+            openCell(K, I-(-N)); // вниз
+            openCell(K, I-(-N)-1); // влево-вниз
             switch (K)
             {
                 case 0:
@@ -931,8 +931,8 @@ function openCell (K, I)
             openCell(K, I-N); // вверх
             openCell(K, I-N+1); // вправо-вверх
             openCell(K, I+1); // вправо
-            openCell(K, I+N+1); // вправо-вниз
-            openCell(K, I+N); // вниз
+            openCell(K, I-(-N)+1); // вправо-вниз
+            openCell(K, I-(-N)); // вниз
             switch (K)
             {
                 case 0:
@@ -943,25 +943,25 @@ function openCell (K, I)
 
                 case 1:
                 openCell(4, I-1); // влево-вверх
-                openCell(4, I+N-1); // влево
+                openCell(4, I-(-N)-1); // влево
                 openCell(4, I+2*N-1); // влево-вниз
                 break;
 
                 case 2:
                 openCell(1, I-1); // влево-вверх
-                openCell(1, I+N-1); // влево
+                openCell(1, I-(-N)-1); // влево
                 openCell(1, I+2*N-1); // влево-вниз
                 break;
                  
                 case 3:
                 openCell(2, I-1); // влево-вверх
-                openCell(2, I+N-1); // влево
+                openCell(2, I-(-N)-1); // влево
                 openCell(2, I+2*N-1); // влево-вниз
                 break;
                 
                 case 4:
                 openCell(3, I-1); // влево-вверх
-                openCell(3, I+N-1); // влево
+                openCell(3, I-(-N)-1); // влево
                 openCell(3, I+2*N-1); // влево-вниз
                 break;
                 
@@ -978,8 +978,8 @@ function openCell (K, I)
             openCell(K, I-N); // вверх
             openCell(K, I-N-1); // влево-вверх
             openCell(K, I-1); // влево
-            openCell(K, I+N-1); // влево-вниз
-            openCell(K, I+N); // вниз
+            openCell(K, I-(-N)-1); // влево-вниз
+            openCell(K, I-(-N)); // вниз
             switch (K)
             {
                 case 0:
