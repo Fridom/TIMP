@@ -19,12 +19,3 @@ $('body').find('.design').click(function() {
     var s = 'index.html?'+escape($a);
     this.href=s;
 });
-
-document.getElementById('one').disabled = true;
-
-<<<<<<< HEAD
-$('body').find('#one').click(function(){
-	alert('asd');
-});
-=======
->>>>>>> 0a5927bff2821050cfaae9bdebd04bac9e19957d

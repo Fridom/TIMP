@@ -118,6 +118,12 @@ function randomMine(n){
 var $s = location.search;
 mineField = randomMine($s.substr(1-$s.length));
 
+function gameOver(){
+    $b = ('<h1>ФУ ЛОООООХ<br><button><a href = \"ready.html\">Начинай сначала</a></button></h1>');
+    $('body').click(function(){
+        this.innerHTML = $b
+    });
+}
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').click(function(img) {
     $a = this.innerHTML.substr(-4,2);
@@ -128,16 +134,23 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     if (mineField[0][$a] == 0) {
         openCell(0, $a);
     }
+    if (mineField[0][$a] == 9) {
+        gameOver()
+    }
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').click(function(img) {
     $a = this.innerHTML.substr(-4,2);
+    $b = this.innerHTML
     if ($a.substr(0,1) == '\"'){
         $a = $a.substr(-1)
     }
     this.innerHTML = this.innerHTML.replace('white', mineField[1][$a])
     if (mineField[1][$a] == 0) {
         openCell(1, $a);
+    }
+    if (mineField[1][$a] == 9) {
+        gameOver()
     }
 });
 
@@ -149,6 +162,9 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     this.innerHTML = this.innerHTML.replace('white', mineField[2][$a])
     if (mineField[2][$a] == 0) {
         openCell(2, $a);
+    }
+    if (mineField[2][$a] == 9) {
+        gameOver()
     }
     
 });
@@ -163,6 +179,9 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     if (mineField[3][$a] == 0) {
         openCell(3, $a);
     }
+    if (mineField[3][$a] == 9) {
+        gameOver()
+    }
     
 });
 
@@ -174,6 +193,9 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     this.innerHTML = this.innerHTML.replace('white', mineField[4][$a])
     if (mineField[4][$a] == 0) {
         openCell(4, $a);
+    }
+    if (mineField[4][$a] == 9) {
+        gameOver()
     }
     
 });
@@ -187,8 +209,12 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     if (mineField[5][$a] == 0) {
         openCell(5, $a);
     }
-    
+    if (mineField[5][$a] == 9) {
+        gameOver()
+    }
 });
+
+
 /*
 //Это нужно удалить
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button1').find('img').each(function(img) {
