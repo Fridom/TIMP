@@ -907,7 +907,7 @@ function openCell (K, I)
         if (I == N*N-1) // (правый нижний угол одной стороны)
         {
             openCell(K, N*(N-1)-1); // вверх
-            openCell(K, N*(N-2)-2); // влево-вверх
+            openCell(K, N*(N-1)-2); // влево-вверх
             openCell(K, N*N-2); // влево
             switch (K)
             {
@@ -958,7 +958,7 @@ function openCell (K, I)
         if ((I / N >> 0 == 0) && (I != 0) && (I != N-1)) // верхняя грань
         {
             openCell(K, I-1); // влево
-            openCell(K, I+1); // вправо
+            openCell(K, I-(-1)); // вправо
             openCell(K, I-(-N)+1); // вправо-вниз
             openCell(K, I-(-N)); // вниз
             openCell(K, I-(-N)-1); // влево-вниз
