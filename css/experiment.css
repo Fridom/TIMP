@@ -26,9 +26,6 @@
   width: 360px;
   padding: 1px;
   background-color: rgba(255, 255, 255, 3);
-  font-size: 27px;
-  line-height: 1em;
-  color: #fff;
   border-left: 5px solid #adf;
   border-right: 5px solid #adf;
   border-top: 5px solid #d88;
@@ -37,45 +34,46 @@
 }
 
 #cube .one  {
-  -webkit-transform: rotateX(90deg) translateZ(200px);
-  -moz-transform: rotateX(90deg) translateZ(200px);
+  -webkit-transform: rotateX(90deg) translateZ(185px);
+  -moz-transform: rotateX(90deg) translateZ(185px);
   transform: rotateX(90deg) translateZ(185px);
   border: 5px solid #d88;
 }
 
 #cube .two {
-  -webkit-transform: translateZ(200px);
-  -moz-transform: translateZ(200px);
+  -webkit-transform: translateZ(185px);
+  -moz-transform: translateZ(185px);
   transform: translateZ(185px);
 }
 
 #cube .three {
-  -webkit-transform: rotateY(90deg) translateZ(200px);
-  -moz-transform: rotateY(90deg) translateZ(200px);
+  -webkit-transform: rotateY(90deg) translateZ(185px);
+  -moz-transform: rotateY(90deg) translateZ(185px);
   transform: rotateY(90deg) translateZ(185px);
 }
 
 #cube .four {
-  -webkit-transform: rotateY(180deg) translateZ(200px);
-  -moz-transform: rotateY(180deg) translateZ(200px);
+  -webkit-transform: rotateY(180deg) translateZ(185px);
+  -moz-transform: rotateY(180deg) translateZ(185px);
   transform: rotateY(180deg) translateZ(185px);
 }
 
 #cube .five {
-  -webkit-transform: rotateY(-90deg) translateZ(200px);
-  -moz-transform: rotateY(-90deg) translateZ(200px);
+  -webkit-transform: rotateY(-90deg) translateZ(185px);
+  -moz-transform: rotateY(-90deg) translateZ(185px);
   transform: rotateY(-90deg) translateZ(185px);
 }
 
 #cube .six {
-  -webkit-transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
-  -moz-transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
+  -webkit-transform: rotateX(-90deg) rotate(180deg) translateZ(185px);
+  -moz-transform: rotateX(-90deg) rotate(180deg) translateZ(185px);
   transform: rotateX(-90deg) rotate(180deg) translateZ(185px);
   border: 5px solid #d88; 
 }
 
 .button1 {
-width:44px; height:44px; margin: 0 1px 1px 0; float:left;}
+width:44px; height:44px; margin: 0 1px 1px 0; float:left;
+}
 
 .button2 {
 width:44px; height:44px; margin: 0 1px 1px 0; float:left; 
@@ -95,4 +93,72 @@ width:44px; height:44px; margin: 0 1px 1px 0; float:left;
 
 .button6 {
 width:44px; height:44px; margin: 0 1px 1px 0; float:left;
+}
+
+
+#experimentSmall {
+  -webkit-perspective: 800px;
+  -webkit-perspective-origin: 50% 200px;
+  -moz-perspective: 800px;
+  -moz-perspective-origin: 50% 200px;
+  perspective: 800px;
+  perspective-origin: 50% -200px;
+}
+
+#cubeSmall {
+  position: relative;
+  margin: 10px auto 0;
+  height: 160px;
+  width: 160px;
+  transform-style: preserve-3d;
+  animation: rotate 7s infinite linear;
+}
+
+.faceSmall {
+  position: absolute;
+  height: 160px;
+  width: 160px;
+}
+
+#cubeSmall .one  {
+  -webkit-transform: rotateX(90deg) translateZ(80px);
+  -moz-transform: rotateX(90deg) translateZ(80px);
+  transform: rotateX(90deg) translateZ(80px);
+}
+
+#cubeSmall .two {
+  -webkit-transform: translateZ(80px);
+  -moz-transform: translateZ(80px);
+  transform: translateZ(80px);
+}
+
+#cubeSmall .three {
+  -webkit-transform: rotateY(90deg) translateZ(80px);
+  -moz-transform: rotateY(90deg) translateZ(80px);
+  transform: rotateY(90deg) translateZ(-80px);
+}
+
+#cubeSmall .four {
+  -webkit-transform: translateZ(80px);
+  -moz-transform: translateZ(80px);
+  transform:  translateZ(-80px);
+}
+
+#cubeSmall .five {
+  -webkit-transform: rotateY(90deg) translateZ(80px);
+  -moz-transform: rotateY(90deg) translateZ(80px);
+  transform: rotateY(90deg) translateZ(80px);
+}
+
+#cubeSmall .six {
+  -webkit-transform: rotateX(90deg) translateZ(80px);
+  -moz-transform: rotateX(90deg) translateZ(80px);
+  transform: rotateX(90deg) translateZ(-80px);
+}
+
+
+@keyframes rotate {
+  100% {
+    transform: rotateY(360deg);
+  }
 }
