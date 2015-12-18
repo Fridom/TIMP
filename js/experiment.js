@@ -107,6 +107,7 @@ function randomMine(n){
 }
 
 var $s = location.search;
+$mine_max = $s.substr(1-$s.length)
 $s = $s.substr(1-$s.length)
 mineField = randomMine($s);
 writeMine()
@@ -179,10 +180,14 @@ function gameOver(){
 
 function victory(){
     k = 0;
+    q = 0;
     $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').each(function(){
         if (this.src.indexOf("white") + 1) k++
         if (this.src.indexOf("blood_mine") + 1) k=2
+        if (this.src.indexOf("flag") + 1) q++
     });
+    $s = $mine_max - q
+    writeMine()
     if (k==$s){
         $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').each(function(){
             this.src.replace('white','flag')
@@ -211,13 +216,9 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     $text = this.innerHTML
     if($text.indexOf("white") + 1){
         this.innerHTML = $text.replace('white', 'flag')
-        $s--;
-        writeMine();
     }
     if($text.indexOf("flag") + 1){
         this.innerHTML = $text.replace('flag', 'white')
-        $s++;
-        writeMine()
     }
     victory();
     return false
