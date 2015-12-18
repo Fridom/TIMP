@@ -1118,25 +1118,25 @@ function openCell (K, I)
                 case 1:
                 openCell(4, I-1); // влево-вверх
                 openCell(4, I-(-N)-1); // влево
-                openCell(4, I+2*N-1); // влево-вниз
+                openCell(4, I-(-2*N)-1); // влево-вниз
                 break;
 
                 case 2:
                 openCell(1, I-1); // влево-вверх
                 openCell(1, I-(-N)-1); // влево
-                openCell(1, I+2*N-1); // влево-вниз
+                openCell(1, I-(-2*N)-1); // влево-вниз
                 break;
                  
                 case 3:
                 openCell(2, I-1); // влево-вверх
                 openCell(2, I-(-N)-1); // влево
-                openCell(2, I+2*N-1); // влево-вниз
+                openCell(2, I-(-2*N)-1); // влево-вниз
                 break;
                 
                 case 4:
                 openCell(3, I-1); // влево-вверх
                 openCell(3, I-(-N)-1); // влево
-                openCell(3, I+2*N-1); // влево-вниз
+                openCell(3, I-(-2*N)-1); // влево-вниз
                 break;
                 
                 case 5:
