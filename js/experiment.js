@@ -122,7 +122,7 @@ $t = 1;
 $h = 00;
 $m = 00;
 
-setInterval(function(){
+interval = setInterval(function(){
     $('body').find('div#time').find("p").each(function(){
         if ($t == 60){
             $m++;
@@ -167,9 +167,12 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.but
 
 function gameOver(){
     
-    $b = ('<center><button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center>');
+    $b = ('<center> <h3>Ну что же, не всем быть гениальными саперами<br>' +
+        'Потрачено времени на игру: ' + $time + ' </h3>' +
+        '<button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center>');
     $('body').each(function(){
         this.innerHTML += $b
+        clearInterval(interval);
     });
 }
 
@@ -179,9 +182,12 @@ function victory(){
         if (this.src.indexOf("white") + 1) k = 1
         if (this.src.indexOf("blood_mine") + 1) {k = 2; alert(this.src);}
     });
-    alert(k)
+
     if (k==0){
-        $b = ('<center><button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Да! Ты на коне!</h1></a></button></center>');
+        clearInterval(interval);
+        $b = ('<center><h3> И это победа!<br>' +
+            'Вы потратили на игру: ' + $time + '</h3>' +
+            '<button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center>');
         $('body').each(function(){
         this.innerHTML += $b
     });
