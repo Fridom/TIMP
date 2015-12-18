@@ -180,7 +180,7 @@ function victory(){
     k = 0;
     $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').each(function(){
         if (this.src.indexOf("white") + 1) k = 1
-        if (this.src.indexOf("blood_mine") + 1) {k = 2; alert(this.src);}
+        if (this.src.indexOf("blood_mine") + 1) k=2
     });
 
     if (k==0){
@@ -209,6 +209,27 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     victory();
     return false
  });
+
+/*$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').mousedown(function(img) {
+    document.write(this.which)
+    if (this.which == 3){
+    $text = this.innerHTML
+    if($text.indexOf("white") + 1){
+        this.innerHTML = $text.replace('white', 'flag')
+        $s--;
+        writeMine();
+    }
+    if($text.indexOf("flag") + 1){
+        this.innerHTML = $text.replace('flag', 'white')
+        $s++;
+        writeMine()
+    }
+    victory();
+    return false
+}
+ });
+
+*/
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').click(function(img) {
     $a = this.innerHTML.substr(-4,2);
