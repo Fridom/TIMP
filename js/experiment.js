@@ -44,16 +44,7 @@ $('body').keydown(function(evt) {
 });
 
 
- $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').contextmenu(function(img) {
-    $text = this.innerHTML
-    if($text.indexOf("white") + 1){
-        this.innerHTML = $text.replace('white', 'flag')
-    }
-    if($text.indexOf("flag") + 1){
-        this.innerHTML = $text.replace('flag', 'white')
-    }
-    return false
- });
+ 
 
  i=0
  $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button1').find('img').each(function(a){
@@ -116,7 +107,34 @@ function randomMine(n){
 }
 
 var $s = location.search;
-mineField = randomMine($s.substr(1-$s.length));
+$s = $s.substr(1-$s.length)
+mineField = randomMine($s);
+writeMine()
+
+
+function writeMine(){
+$('body').find('div#mines').find("p").each(function(){
+    this.innerHTML = 'Осталось мин: ' + $s
+});
+}
+
+$t = 0;
+
+function time(){
+    alert('asd')
+    $('body').find('div#time').find("p").each(function(){
+    this.innerHTML = 'Прошло времени: <br> ' + t
+});
+}
+
+//setTimeout(time($t++), 1000)
+setTimeout(function(){
+    $('body').find('div#time').find("p").each(function(){
+    this.innerHTML = 'Прошло времени: <br> ' + $t
+    });
+    $t++;
+}, 1000)
+
 
 function openAll(){
     $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button1').find('img').each(function(img) {
@@ -152,6 +170,37 @@ function gameOver(){
     });
 }
 
+function victory(){
+    k = 0;
+    $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').each(function(){
+        if (this.src.indexOf("white") + 1) k = 1
+        if (this.src.indexOf("blood_mine") + 1) {k = 2; alert(this.src);}
+    });
+    alert(k)
+    if (k==0){
+        $b = ('<center><button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Да! Ты на коне!</h1></a></button></center>');
+        $('body').each(function(){
+        this.innerHTML += $b
+    });
+    }
+}
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').contextmenu(function(img) {
+    $text = this.innerHTML
+    if($text.indexOf("white") + 1){
+        this.innerHTML = $text.replace('white', 'flag')
+        $s--;
+        writeMine();
+    }
+    if($text.indexOf("flag") + 1){
+        this.innerHTML = $text.replace('flag', 'white')
+        $s++;
+        writeMine()
+    }
+    victory();
+    return false
+ });
+
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').click(function(img) {
     $a = this.innerHTML.substr(-4,2);
     $b = this.innerHTML
@@ -167,9 +216,10 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
         openAll()
         this.innerHTML = $b.replace('white', 'blood_mine');
 
-        gameOver()
+        gameOver();
     }
 }
+victory();
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').click(function(img) {
@@ -189,6 +239,7 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
         gameOver()
     }
 }
+victory();
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').click(function(img) {
@@ -207,6 +258,7 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
         gameOver()
     }
     }
+    victory();
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button4').click(function(img) {
@@ -226,6 +278,7 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
         gameOver()
     }
     }
+    victory();
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button5').click(function(img) {
@@ -244,6 +297,7 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
         gameOver()
     }
     }
+    victory();
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button6').click(function(img) {
@@ -262,6 +316,7 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
         gameOver()
     }
 }
+victory();
 });
 
 
