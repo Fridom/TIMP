@@ -118,11 +118,12 @@ $('body').find('div#mines').find("p").each(function(){
 });
 }
 
-$t = 1;
+$t = 00;
 $h = 00;
 $m = 00;
-
+$time = $h+':'+$m+':'+$t
 interval = setInterval(function(){
+    $t++;
     $('body').find('div#time').find("p").each(function(){
         if ($t == 60){
             $m++;
@@ -135,7 +136,7 @@ interval = setInterval(function(){
         $time = $h+':'+$m+':'+$t
         this.innerHTML = 'Прошло времени: <br> ' + $time
         });
-    $t++;
+    
 }, 1000)
 
 
@@ -179,10 +180,21 @@ function gameOver(){
 function victory(){
     k = 0;
     $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').each(function(){
-        if (this.src.indexOf("white") + 1) k = 1
+        if (this.src.indexOf("white") + 1) k++
         if (this.src.indexOf("blood_mine") + 1) k=2
     });
-
+    if (k==$s){
+        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').each(function(){
+            this.src.replace('white','flag')
+        });
+        clearInterval(interval);
+        $b = ('<center><h3> И это победа!<br>' +
+            'Вы потратили на игру: ' + $time + '</h3>' +
+            '<button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center>');
+        $('body').each(function(){
+        this.innerHTML += $b
+    });
+    }
     if (k==0){
         clearInterval(interval);
         $b = ('<center><h3> И это победа!<br>' +
@@ -193,6 +205,7 @@ function victory(){
     });
     }
 }
+
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').contextmenu(function(img) {
     $text = this.innerHTML
