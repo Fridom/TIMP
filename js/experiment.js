@@ -183,7 +183,7 @@ function victory(){
     q = 0;
     $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').each(function(){
         if (this.src.indexOf("white") + 1) k++
-        if (this.src.indexOf("blood_mine") + 1) k=2
+        if (this.src.indexOf("blood_mine") + 1) k=-1
         if (this.src.indexOf("flag") + 1) q++
     });
     $s = $mine_max - q
@@ -223,8 +223,8 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     return false
  });
 
-/*$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').mousedown(function(img) {
-    document.write(this.which)
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').mousedown(function(img) {
+    alert(instanceOfMouseEvent.this)
     if (this.which == 3){
     $text = this.innerHTML
     if($text.indexOf("white") + 1){
@@ -242,7 +242,6 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
 }
  });
 
-*/
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').click(function(img) {
     $a = this.innerHTML.substr(-4,2);
