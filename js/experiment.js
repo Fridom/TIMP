@@ -118,20 +118,23 @@ $('body').find('div#mines').find("p").each(function(){
 });
 }
 
-$t = 0;
+$t = 1;
+$h = 00;
+$m = 00;
 
-function time(){
-    alert('asd')
-    $('body').find('div#time').find("p").each(function(){
-    this.innerHTML = 'Прошло времени: <br> ' + t
-});
-}
-
-//setTimeout(time($t++), 1000)
 setInterval(function(){
     $('body').find('div#time').find("p").each(function(){
-    this.innerHTML = 'Прошло времени: <br> ' + $t
-    });
+        if ($t == 60){
+            $m++;
+            $t = 00;
+        }
+        if ($m == 60){
+            $h++;
+            $m = 00;
+        }
+        $time = $h+':'+$m+':'+$t
+        this.innerHTML = 'Прошло времени: <br> ' + $time
+        });
     $t++;
 }, 1000)
 
