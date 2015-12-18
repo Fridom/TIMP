@@ -190,7 +190,7 @@ function victory(){
     writeMine()
     if (k==$s){
         $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').each(function(){
-            this.src.replace('white','flag')
+            if (this.src.indexOf("white") + 1) this.src = "images/flag.jpg"
         });
         clearInterval(interval);
         $b = ('<center><h3> И это победа!<br>' +
@@ -210,7 +210,6 @@ function victory(){
     });
     }
 }
-
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').contextmenu(function(img) {
     $text = this.innerHTML
