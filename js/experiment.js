@@ -128,7 +128,7 @@ function time(){
 }
 
 //setTimeout(time($t++), 1000)
-setTimeout(function(){
+setInterval(function(){
     $('body').find('div#time').find("p").each(function(){
     this.innerHTML = 'Прошло времени: <br> ' + $t
     });
