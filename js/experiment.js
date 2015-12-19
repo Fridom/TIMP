@@ -172,7 +172,7 @@ function gameOver(){
         k=2
     });
     if (k == 0){
-    $b = ('<div id=\'theEnd\' style=\'position:relative;left:-60px;top:-70px\'><center> <h3>Ну что же, не всем быть гениальными саперами<br>' +
+    $b = ('<div id=\'theEnd\' style=\'position:absolute;left:10px;top:400px\'><center> <h3>Ну что же, не всем быть гениальными саперами<br>' +
         'Потрачено времени на игру: ' + $time + ' </h3>' +
         '<button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center></div>');
     $('body').each(function(){
@@ -202,7 +202,7 @@ function victory(){
             if (this.src.indexOf("white") + 1) this.src = "images/flag.jpg"
         });
         clearInterval(interval);
-        $b = ('<div id=\'theEnd\' style=\'position:relative;left:-60px;top:-70px\'><center><h3> И это победа!<br>' +
+        $b = ('<div id=\'theEnd\' style=\'position:absolute;left:10px;top:200px\'><center><h3> И это победа!<br>' +
             'Вы потратили на игру: ' + $time + '</h3>' +
             '<button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center></div>');
         $('body').each(function(){
@@ -211,7 +211,7 @@ function victory(){
     }
     if (k==0){
         clearInterval(interval);
-        $b = ('<div id=\'theEnd\' style=\'position:relative;left:-60px;top:-70px\'><center><h3> И это победа!<br>' +
+        $b = ('<div id=\'theEnd\' style=\'position:absolute;left:10px;top:200px\'><center><h3> И это победа!<br>' +
             'Вы потратили на игру: ' + $time + '</h3>' +
             '<button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center></div>');
         $('body').each(function(){
