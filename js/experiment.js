@@ -1289,7 +1289,7 @@ function openCell (K, I)
                 case 4:
                 openCell(0, N*(I-1)); // влево-вверх
                 openCell(0, N*I); // вверх
-                openCell(0, N*(I+1)); // вверх-вправо
+                openCell(0, N*(I-(-1))); // вверх-вправо
                 break;
                 
                 case 5:
