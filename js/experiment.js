@@ -1400,10 +1400,10 @@ function openCell (K, I)
         if ((I / N >> 0 == 7) && (I != N*(N-1)) && (I != N*N-1)) // нижняя грань
         {
             openCell(K, I-1); // влево
-            openCell(K, I+(-N)-1); // влево-вверх
-            openCell(K, I+(-N)); // вверх
-            openCell(K, I+(-N)+1); // вправо-вверх
-            openCell(K, I+1); // вправо
+            openCell(K, I-1-N); // влево-вверх
+            openCell(K, I-0-N); // вверх
+            openCell(K, I+1-N); // вправо-вверх
+            openCell(K, I-(-1)); // вправо
             switch (K)
             {
                 case 0:
