@@ -167,19 +167,25 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.but
 }
 
 function gameOver(){
-    $('body').find('div#theEnd').each(function(){
-        alert(this);
+    k = $('body').find('div#theEnd').each(function(){
+        return 3;
     });
-    $b = ('<div id=\'theEnd\'><center> <h3 style=\"position:relative;left:-60px;\">Ну что же, не всем быть гениальными саперами<br>' +
+    if (k.innerHTML == undefined){
+    $b = ('<div id=\'theEnd\' style=\'position:relative;left:-60px;top:-70px\'><center> <h3 style=\"position:relative;left:-60px;\">Ну что же, не всем быть гениальными саперами<br>' +
         'Потрачено времени на игру: ' + $time + ' </h3>' +
-        '<button style=\"width:240px;height:80px;position:relative;left:-60px;\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center></div>');
+        '<button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center></div>');
     $('body').each(function(){
         this.innerHTML += $b
         clearInterval(interval);
     });
 }
+}
 
 function victory(){
+    k = $('body').find('div#theEnd').each(function(){
+        return 3;
+    });
+    if (k.innerHTML == undefined){
     k = 0;
     q = 0;
     $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').each(function(){
@@ -194,7 +200,7 @@ function victory(){
             if (this.src.indexOf("white") + 1) this.src = "images/flag.jpg"
         });
         clearInterval(interval);
-        $b = ('<div id=\'theEnd\'><center><h3> И это победа!<br>' +
+        $b = ('<div id=\'theEnd\' style=\'position:relative;left:-60px;top:-70px\'><center><h3> И это победа!<br>' +
             'Вы потратили на игру: ' + $time + '</h3>' +
             '<button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center></div>');
         $('body').each(function(){
@@ -203,13 +209,14 @@ function victory(){
     }
     if (k==0){
         clearInterval(interval);
-        $b = ('<div id=\'theEnd\'><center><h3> И это победа!<br>' +
+        $b = ('<div id=\'theEnd\' style=\'position:relative;left:-60px;top:-70px\'><center><h3> И это победа!<br>' +
             'Вы потратили на игру: ' + $time + '</h3>' +
             '<button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center></div>');
         $('body').each(function(){
         this.innerHTML += $b
     });
     }
+}
 }
 
 
