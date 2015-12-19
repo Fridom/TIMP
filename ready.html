@@ -20,10 +20,15 @@
     font: 12px/1 Arial, sans-serif;
     color: #2c539e; 
    }
-   </style>
-   <style>
-   img {
-    text-align: center;
+
+      </style>
+   <style type="text/css">
+   body {
+    background: url(images/fon1.jpg) no-repeat;
+        -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%; /* Современные браузеры */
    }
    </style>
        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -31,6 +36,8 @@
        <link rel="stylesheet" href="css/experiment.css" />
  </head>
 <body>
+  <div class="area">
+     <form name="ready" method="post">
   <center><p><b><font size="12pt">Количество мин</font></b><br>
    <input type="number" id="number" name="numbermine" step="1" min="1" max="364" required>
    <p><b></b><Br>
@@ -39,7 +46,7 @@
    <input type="radio" id='radio3' name="mine" value="150"> 150<Br>
   </p>
  <br><br><br>
- <form name="ready" method="post">
+
     <a href="" class="design"><font size="15pt">Новая игра</font></a></center>
  <br><br><br>
 
@@ -71,6 +78,6 @@
  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>-->
  <script src='js/jquery.js'></script>
  <script src="js/ready.js"></script>
-
+<div>
  </body>
 </html>
