@@ -169,9 +169,9 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.but
 
 function gameOver(){
     
-    $b = ('<center> <h3>Ну что же, не всем быть гениальными саперами<br>' +
+    $b = ('<center> <h3 style=\"position:relative;left:-60px;top:-70px\">Ну что же, не всем быть гениальными саперами<br>' +
         'Потрачено времени на игру: ' + $time + ' </h3>' +
-        '<button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center>');
+        '<button style=\"width:240px;height:80px;position:relative;left:-60px;top:-70px\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center>');
     $('body').each(function(){
         this.innerHTML += $b
         clearInterval(interval);
@@ -189,6 +189,7 @@ function victory(){
     $s = $mine_max - q
     writeMine()
     if (k==$s){
+        alert(k,$s,q)
         $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').each(function(){
             if (this.src.indexOf("white") + 1) this.src = "images/flag.jpg"
         });
@@ -211,6 +212,7 @@ function victory(){
     }
 }
 
+
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').contextmenu(function(img) {
     $text = this.innerHTML
     if($text.indexOf("white") + 1){
@@ -223,9 +225,8 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     return false
  });
 
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').mousedown(function(img) {
-    alert(instanceOfMouseEvent.this)
-    if (this.which == 3){
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').mousedown(function(e) {
+    if (e.which == 3){
     $text = this.innerHTML
     if($text.indexOf("white") + 1){
         this.innerHTML = $text.replace('white', 'flag')
@@ -361,6 +362,147 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
 victory();
 });
 
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').mousedown(function(img) {
+    alert(instanceOfMouseEvent.this)
+    if (this.which == 3){
+    $text = this.innerHTML
+    if($text.indexOf("white") + 1){
+        this.innerHTML = $text.replace('white', 'flag')
+        $s--;
+        writeMine();
+    }
+    if($text.indexOf("flag") + 1){
+        this.innerHTML = $text.replace('flag', 'white')
+        $s++;
+        writeMine()
+    }
+    victory();
+    return false
+}
+ });
+///////////////////////
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').dblclick(function(img) {
+    $a = this.innerHTML.substr(-4,2);
+    $b = this.innerHTML
+    if ($a.substr(0,1) == '\"'){
+        $a = $a.substr(-1)
+    }
+    $disposable = mineField[0][$a]
+    if (!(this.innerHTML.indexOf('flag')+1)){
+        if (mineField[0][$a] == 9) {
+        openAll()
+        this.innerHTML = $b.replace('white', 'blood_mine');
+
+        gameOver();
+    }
+
+        mineField[0][$a] = 0;
+        openCell(0, $a);
+        mineField[0][$a] = $disposable
+    }
+victory();
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').dblclick(function(img) {
+    $a = this.innerHTML.substr(-4,2);
+    $b = this.innerHTML
+    alert('asd')
+    if ($a.substr(0,1) == '\"'){
+        $a = $a.substr(-1)
+    }
+    $disposable = mineField[1][$a]
+    if (!(this.innerHTML.indexOf('flag')+1)){
+        if (mineField[1][$a] == 9) {
+        openAll()
+        this.innerHTML = $b.replace('white', 'blood_mine');
+
+        gameOver();
+    }
+
+        mineField[1][$a] = 0;
+        openCell(1, $a);
+        mineField[1][$a] = $disposable
+    }
+victory();
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').dblclick(function(img) {
+    $a = this.innerHTML.substr(-4,2);
+    if ($a.substr(0,1) == '\"'){
+        $a = $a.substr(-1)
+    }
+    if (!(this.innerHTML.indexOf('flag')+1)){
+    this.innerHTML = this.innerHTML.replace('white', mineField[2][$a])
+    if (mineField[2][$a] == 0) {
+        openCell(2, $a);
+    }
+    if (mineField[2][$a] == 9) {
+        openAll()
+        this.innerHTML = this.innerHTML.replace(mineField[2][$a], 'blood_mine');
+        gameOver()
+    }
+    }
+    victory();
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button4').dblclick(function(img) {
+    $a = this.innerHTML.substr(-4,2);
+    if ($a.substr(0,1) == '\"'){
+        $a = $a.substr(-1)
+    
+    }
+    if (!(this.innerHTML.indexOf('flag')+1)){
+    this.innerHTML = this.innerHTML.replace('white', mineField[3][$a])
+    if (mineField[3][$a] == 0) {
+        openCell(3, $a);
+    }
+    if (mineField[3][$a] == 9) {
+        openAll()
+        this.innerHTML = this.innerHTML.replace(mineField[3][$a], 'blood_mine');
+        gameOver()
+    }
+    }
+    victory();
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button5').dblclick(function(img) {
+    $a = this.innerHTML.substr(-4,2);
+    if ($a.substr(0,1) == '\"'){
+        $a = $a.substr(-1)
+    }
+    if (!(this.innerHTML.indexOf('flag')+1)){
+    this.innerHTML = this.innerHTML.replace('white', mineField[4][$a])
+    if (mineField[4][$a] == 0) {
+        openCell(4, $a);
+    }
+    if (mineField[4][$a] == 9) {
+        openAll()
+        this.innerHTML = this.innerHTML.replace(mineField[4][$a], 'blood_mine');
+        gameOver()
+    }
+    }
+    victory();
+});
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button6').dblclick(function(img) {
+    $a = this.innerHTML.substr(-4,2);
+    if ($a.substr(0,1) == '\"'){
+        $a = $a.substr(-1)
+    }
+    if (!(this.innerHTML.indexOf('flag')+1)){
+    this.innerHTML = this.innerHTML.replace('white', mineField[5][$a])
+    if (mineField[5][$a] == 0) {
+        openCell(5, $a);
+    }
+    if (mineField[5][$a] == 9) {
+        openAll()
+        this.innerHTML = this.innerHTML.replace(mineField[5][$a], 'blood_mine');
+        gameOver()
+    }
+}
+victory();
+});
 
 /*
 //Это нужно удалить
@@ -802,7 +944,9 @@ function openMe(K, I){
         case 0:
         $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').find('img').each(function(img){
             if (this.alt == I) {
-                this.src = "images/"+mineField[0][this.alt]+".jpg";
+                if(this.src.indexOf('white')+1){
+                   this.src = "images/"+mineField[0][this.alt]+".jpg";
+                }
             }
         });
         break;
@@ -810,32 +954,50 @@ function openMe(K, I){
         case 1:
         $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').find('img').each(function(img){
             if (this.alt == I) {
-                this.src = "images/"+mineField[1][this.alt]+".jpg";
+                if(this.src.indexOf('white')+1){
+                   this.src = "images/"+mineField[1][this.alt]+".jpg";
+                }
             }
         });
         break;
 
         case 2:
         $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').find('img').each(function(img){
-            if (this.alt == I) this.src = "images/"+mineField[2][this.alt]+".jpg";
+            if (this.alt == I) {
+                if(this.src.indexOf('white')+1){
+                   this.src = "images/"+mineField[2][this.alt]+".jpg";
+                }
+            }
         });
         break;
 
         case 3:
         $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button4').find('img').each(function(img){
-            if (this.alt == I) this.src = "images/"+mineField[3][this.alt]+".jpg";
+            if (this.alt == I) {
+                if(this.src.indexOf('white')+1){
+                   this.src = "images/"+mineField[3][this.alt]+".jpg";
+                }
+            }
         });
         break;
 
         case 4:
         $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button5').find('img').each(function(img){
-            if (this.alt == I) this.src = "images/"+mineField[4][this.alt]+".jpg";
+            if (this.alt == I) {
+                if(this.src.indexOf('white')+1){
+                   this.src = "images/"+mineField[4][this.alt]+".jpg";
+                }
+            }
         });
         break;
 
         case 5:
         $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button6').find('img').each(function(img){
-            if (this.alt == I) this.src = "images/"+mineField[5][this.alt]+".jpg";
+            if (this.alt == I) {
+                if(this.src.indexOf('white')+1){
+                   this.src = "images/"+mineField[5][this.alt]+".jpg";
+                }
+            }
         });
         break;
     }
