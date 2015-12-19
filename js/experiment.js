@@ -168,7 +168,9 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.but
 }
 
 function gameOver(){
-    
+    $('body').find('div#theEnd').each(function(){
+        alert(this);
+    });
     $b = ('<center> <h3 style=\"position:relative;left:-60px;\">Ну что же, не всем быть гениальными саперами<br>' +
         'Потрачено времени на игру: ' + $time + ' </h3>' +
         '<button style=\"width:240px;height:80px;position:relative;left:-60px;\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center>');
