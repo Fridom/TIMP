@@ -167,11 +167,12 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.but
 }
 
 function gameOver(){
-    k = $('body').find('div#theEnd').each(function(){
-        return 3;
+    k = 0
+    $('body').find('div#theEnd').each(function(){
+        k=2
     });
-    if (k.innerHTML == undefined){
-    $b = ('<div id=\'theEnd\' style=\'position:relative;left:-60px;top:-70px\'><center> <h3 style=\"position:relative;left:-60px;\">Ну что же, не всем быть гениальными саперами<br>' +
+    if (k == 0){
+    $b = ('<div id=\'theEnd\' style=\'position:relative;left:-60px;top:-70px\'><center> <h3>Ну что же, не всем быть гениальными саперами<br>' +
         'Потрачено времени на игру: ' + $time + ' </h3>' +
         '<button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center></div>');
     $('body').each(function(){
@@ -182,10 +183,11 @@ function gameOver(){
 }
 
 function victory(){
-    k = $('body').find('div#theEnd').each(function(){
-        return 3;
+    k=0
+    $('body').find('div#theEnd').each(function(){
+        k=2
     });
-    if (k.innerHTML == undefined){
+    if (k == 0){
     k = 0;
     q = 0;
     $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').each(function(){
