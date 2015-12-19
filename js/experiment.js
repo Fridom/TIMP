@@ -92,7 +92,7 @@ function randomMine(n){
         {
             a = getRandomInt(0, 5);
             b = getRandomInt(0, 63);
-        } while (mineField[a][b] == 9 && limit[a] > n/4)
+        } while (mineField[a][b] == 9 || limit[a] > n/4)
         mineField[a][b] = 9;
         limit[a]++;
     }
@@ -111,16 +111,6 @@ $mine_max = $s.substr(1-$s.length)
 $s = $s.substr(1-$s.length)
 mineField = randomMine($s);
 writeMine()
-
-$eachMine = 0;
-for(i=0;i<6;i++){
-        for(j=0;j<64;j++){
-            if(mineField[i][j] == 9){
-                $eachMine++;
-            }
-        }
-    }
-alert($eachMine)
 
 function writeMine(){
 $('body').find('div#mines').find("p").each(function(){
@@ -180,9 +170,9 @@ function gameOver(){
     $('body').find('div#theEnd').each(function(){
         alert(this);
     });
-    $b = ('<center> <h3 style=\"position:relative;left:-60px;\">Ну что же, не всем быть гениальными саперами<br>' +
+    $b = ('<div id=\'theEnd\'><center> <h3 style=\"position:relative;left:-60px;\">Ну что же, не всем быть гениальными саперами<br>' +
         'Потрачено времени на игру: ' + $time + ' </h3>' +
-        '<button style=\"width:240px;height:80px;position:relative;left:-60px;\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center>');
+        '<button style=\"width:240px;height:80px;position:relative;left:-60px;\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center></div>');
     $('body').each(function(){
         this.innerHTML += $b
         clearInterval(interval);
