@@ -189,9 +189,6 @@ function victory(){
     $s = $mine_max - q
     writeMine()
     if (k==$s){
-        alert(k)
-        alert($s)
-        alert(q)
         $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').each(function(){
             if (this.src.indexOf("white") + 1) this.src = "images/flag.jpg"
         });
@@ -389,7 +386,10 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
 function isDead(){
     k = 0;
     $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('img').each(function(){
-        if (this.src.indexOf('9.jpg')+1) k++
+        if (this.src.indexOf('9.jpg')+1){
+            k++;
+            this.src = "images/blood_mine.jpg";
+        }
     });
     if (k>0) {
         openAll();
