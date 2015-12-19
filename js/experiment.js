@@ -112,6 +112,15 @@ $s = $s.substr(1-$s.length)
 mineField = randomMine($s);
 writeMine()
 
+$eachMine = 0;
+for(i=0;i<6;i++){
+        for(j=0;j<64;j++){
+            if(mineField[i][j] == 9){
+                $eachMine++;
+            }
+        }
+    }
+alert($eachMine)
 
 function writeMine(){
 $('body').find('div#mines').find("p").each(function(){
