@@ -224,7 +224,7 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     victory();
     return false
  });
-
+/*
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').mousedown(function(e) {
     if (e.which == 3){
     $text = this.innerHTML
@@ -242,7 +242,7 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     return false
 }
  });
-
+*/
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').click(function(img) {
     $a = this.innerHTML.substr(-4,2);
@@ -362,6 +362,7 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
 victory();
 });
 
+/*
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').mousedown(function(img) {
     alert(instanceOfMouseEvent.this)
     if (this.which == 3){
@@ -380,6 +381,7 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     return false
 }
  });
+*/
 ///////////////////////
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').dblclick(function(img) {
@@ -404,7 +406,8 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
 victory();
 });
 
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').dblclick(function(img) {
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').mousedown(function(img) {
+    if (this.which == 3){
     $a = this.innerHTML.substr(-4,2);
     $b = this.innerHTML
     alert('asd')
@@ -424,6 +427,7 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
         openCell(1, $a);
         mineField[1][$a] = $disposable
     }
+}
 victory();
 });
 
