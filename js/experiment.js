@@ -1401,7 +1401,7 @@ function openCell (K, I)
         {
             openCell(K, I-1); // влево
             openCell(K, I+(-N)-1); // влево-вверх
-            openCell(K, I+(-N); // вверх
+            openCell(K, I+(-N)); // вверх
             openCell(K, I+(-N)+1); // вправо-вверх
             openCell(K, I+1); // вправо
             switch (K)
