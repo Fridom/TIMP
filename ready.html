@@ -11,20 +11,27 @@
     background: #deefff;
     background: -moz-linear-gradient(top, #deefff 0%, #98bede 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#deefff), color-stop(100%,#98bede));
-    background: -webkit-linear-gradient(top, #deefff 0%,#98bede 100%);
+    background: -webkit-linear-gradient(top, #ffee55 0%,#ffee00 100%);
     background: -o-linear-gradient(top, #deefff 0%,#98bede 100%);
     background: -ms-linear-gradient(top, #deefff 0%,#98bede 100%);
     background: linear-gradient(top, #deefff 0%,#98bede 100%);
     border-radius: 10px; 
     border: 1px solid #008;
     font: 12px/1 Arial, sans-serif;
-    color: #2c539e; 
+    color: #ef4533; 
    }
-
+  .area {
+    position: absolute;
+  height: 400px;
+  width: 800px;    
+    background: linear-gradient(yellow, red);  /* подробнее про градиенты */ 
+  -webkit-background-clip: text;  /* подробнее про background-clip */ 
+  color: transparent
+  }
       </style>
    <style type="text/css">
    body {
-    background: url(images/fon2.jpg) no-repeat;
+    background: url(images/fon14.jpg) no-repeat;
         -moz-background-size: 100%; /* Firefox 3.6+ */
     -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
     -o-background-size: 100%; /* Opera 9.6+ */
@@ -38,7 +45,7 @@
 <body>
   <div class="area">
      <form name="ready" method="post">
-  <center><p><b><font size="12pt">Количество мин</font></b><br>
+  <center><p><img src="images/miner.jpg" width="80" height="70"><b><font size="12pt"face="Trebuchet MS">Количество мин</font></b><img src="images/miner.jpg" width="80" height="70"><br>
    <input type="number" id="number" name="numbermine" step="1" min="1" max="364" required>
    <p><b></b><Br>
    <input type="radio" id='radio1' name="mine" value="30" checked> 30<Br>
@@ -47,7 +54,7 @@
   </p>
  <br><br><br>
 
-    <a href="" class="design"><font size="15pt">Новая игра</font></a></center>
+    <a href="" class="design"><font size="15pt"face="Trebuchet MS">Новая игра</font></a></center>
  <br><br><br>
 
  <div id="experimentSmall">

@@ -37,8 +37,8 @@
   width: 360px;
   padding: 1px;
   background-color: rgba(255, 255, 255, 3);
-  border-left: 5px solid #000;
-  border-right: 5px solid #000;
+  border-left: 5px solid #aef;
+  border-right: 5px solid #aef;
   border-top: 5px solid #d88;
   border-bottom: 5px solid #d88;
   border-radius: 3px;
@@ -118,8 +118,8 @@ width:44px; height:44px; margin: 0 1px 1px 0; float:left;padding:0px;
 #cubeSmall {
   position: absolute;
   margin: 10px auto 0;
-  left: 80px;
-  top: -100px;
+  left: 1050px;
+  top: -350px;
   height: 160px;
   width: 160px;
   transform-style: preserve-3d;
