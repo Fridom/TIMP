@@ -113,7 +113,7 @@ mineField = randomMine($s);
 writeMine()
 
 function writeMine(){
-$('body').find('div#mines').find("p").each(function(){
+$('body').find('div#mines').find("font").each(function(){
     this.innerHTML = 'Осталось мин: ' + $s
 });
 }
@@ -124,7 +124,7 @@ $m = 00;
 $time = $h+':'+$m+':'+$t
 interval = setInterval(function(){
     $t++;
-    $('body').find('div#time').find("p").each(function(){
+    $('body').find('div#time').find("font").each(function(){
         if ($t == 60){
             $m++;
             $t = 00;
@@ -134,7 +134,7 @@ interval = setInterval(function(){
             $m = 00;
         }
         $time = $h+':'+$m+':'+$t
-        this.innerHTML = 'Прошло времени: <br> ' + $time
+        this.innerHTML = $time
         });
     
 }, 1000)
@@ -174,7 +174,7 @@ function gameOver(){
     if (k == 0){
     $b = ('<div id=\'theEnd\' style=\'position:absolute;left:10px;top:400px\'><center> <h3>Ну что же, не всем быть гениальными саперами<br>' +
         'Потрачено времени на игру: ' + $time + ' </h3>' +
-        '<button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center></div>');
+        '<a href = \"ready.html\"><h1>Начать сначала</h1></a></center></div>');
     $('body').each(function(){
         this.innerHTML += $b
         clearInterval(interval);
@@ -204,7 +204,7 @@ function victory(){
         clearInterval(interval);
         $b = ('<div id=\'theEnd\' style=\'position:absolute;left:10px;top:200px\'><center><h3> И это победа!<br>' +
             'Вы потратили на игру: ' + $time + '</h3>' +
-            '<button style=\"width:240px;height:80px\"><a href = \"ready.html\"><h1>Начать сначала</h1></a></button></center></div>');
+            '<a href = \"ready.html\"><h1>Начать сначала</h1></a></center></div>');
         $('body').each(function(){
         this.innerHTML += $b
     });
