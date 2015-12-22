@@ -1,5 +1,7 @@
 $(document).ready(function(){
-    $('#area span').gradientText();
+    $('#example font').gradientText({
+        colors: ['#191007', '#ff0000', '#ffff00']
+    });
 });
 
 function setCookie( name, value, expires, path, domain, secure ) {
@@ -21,3 +23,4 @@ $('body').find('.design').click(function() {
     var s = 'index.html?'+escape($a);
     this.href=s;
 });
+
