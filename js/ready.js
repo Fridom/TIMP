@@ -1,4 +1,8 @@
-
+$('body').ready(function(){
+    $('font').gradientText({
+        colors: ['#00CCFF', '#FF0000', '#00CC00']
+    });
+});
 
 function setCookie( name, value, expires, path, domain, secure ) {
     document.cookie = name + "=" + escape(value) +
@@ -19,3 +23,4 @@ $('body').find('.design').click(function() {
     var s = 'index.html?'+escape($a);
     this.href=s;
 });
+
