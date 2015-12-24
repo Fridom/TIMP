@@ -579,6 +579,90 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.but
 });
 */
 
+function ifFlag(K, I){
+    $s = 0
+        switch(K){
+        case 0:
+        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').find('img').each(function(img){
+            if (this.alt == I) {
+                if(this.src.indexOf('flag')+1){
+                   $s = 1
+                }
+                else{
+                    $s = 0
+                }
+            }
+        });
+        break;
+
+        case 1:
+        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').find('img').each(function(img){
+            if (this.alt == I) {
+                if(this.src.indexOf('flag')+1){
+                   $s = 1
+                }
+                else{
+                    $s = 0
+                }
+            }
+        });
+        break;
+
+        case 2:
+        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').find('img').each(function(img){
+            if (this.alt == I) {
+                if(this.src.indexOf('flag')+1){
+                   $s = 1
+                }
+                else{
+                    $s = 0
+                }
+            }
+        });
+        break;
+
+        case 3:
+        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button4').find('img').each(function(img){
+            if (this.alt == I) {
+                if(this.src.indexOf('flag')+1){
+                   $s = 1
+                }
+                else{
+                    $s = 0
+                }
+            }
+        });
+        break;
+
+        case 4:
+        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button5').find('img').each(function(img){
+            if (this.alt == I) {
+                if(this.src.indexOf('flag')+1){
+                   $s = 1
+                }
+                else{
+                    $s = 0
+                }
+            }
+        });
+        break;
+
+        case 5:
+        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button6').find('img').each(function(img){
+            if (this.alt == I) {
+                if(this.src.indexOf('flag')+1){
+                   $s = 1
+                }
+                else{
+                    $s = 0
+                }
+            }
+        });
+        break;
+    }
+    return $s
+}
+
 function mineCount (mineField, K, I)
 {
     k = 0;
