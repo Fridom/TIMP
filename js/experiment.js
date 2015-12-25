@@ -184,7 +184,7 @@ function victory(){
             if (this.src.indexOf("white") + 1) this.src = "images/flag.jpg"
         });
         clearInterval(interval);
-        $b = ('<div id=\'theEnd\' style=\'position:absolute;left:10px;top:200px\'><center><h3> И это победа!<br>' +
+        $b = ('<div id=\'theEnd\' style=\'position:absolute;left:10px;top:400px\'><center><h3> И это победа!<br>' +
             'Вы потратили на игру: ' + $time + '</h3>' +
             '<a href = \"ready.html\"><h1>Начать сначала</h1></a></center></div>');
         $('body').each(function(){

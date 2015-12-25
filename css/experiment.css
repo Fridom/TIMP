@@ -1,7 +1,7 @@
 #experiment {
-  -webkit-perspective: 800px;
+  -webkit-perspective: 1000px;
   -webkit-perspective-origin: 50% 200px;
-  -moz-perspective: 800px;
+  -moz-perspective: 1000px;
   -moz-perspective-origin: 50% 200px;
   perspective: 1000px;
   perspective-origin: 50% 200px;
@@ -107,9 +107,9 @@ width:44px; height:44px; margin: 0 1px 1px 0; float:left;padding:0px;
 }
 
 #experimentSmall {
-  -webkit-perspective: 800px;
+  -webkit-perspective: 1300px;
   -webkit-perspective-origin: 50% 200px;
-  -moz-perspective: 800px;
+  -moz-perspective: 1300px;
   -moz-perspective-origin: 50% 200px;
   perspective: 1300px;
   perspective-origin: 50% -400px;
@@ -118,7 +118,7 @@ width:44px; height:44px; margin: 0 1px 1px 0; float:left;padding:0px;
 #cubeSmall {
   position: absolute;
   margin: 10px auto 0;
-  left: 900px;
+  left: 1000px;
   top: -350px;
   height: 160px;
   width: 160px;

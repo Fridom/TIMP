@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('#example font').gradientText({
-        colors: ['#191007', '#ff0000', '#ffff00']
+        colors: ['#D3100D', '#EE820F',  '#D3100D']
     });
 });
 
