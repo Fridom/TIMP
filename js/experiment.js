@@ -141,29 +141,11 @@ interval = setInterval(function(){
 
 
 function openAll(){
-    $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button1').find('img').each(function(img) {
-    this.src = "images/"+mineField[0][this.alt]+".jpg";
+    for (i=0;i<6;i++){
+        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button'+(i+1)).find('img').each(function(img) {
+    this.src = "images/"+mineField[i][this.alt]+".jpg";
 });
-
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button2').find('img').each(function(img) {
-    this.src = "images/"+mineField[1][this.alt]+".jpg";
-});
-
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button3').find('img').each(function(img) {
-    this.src = "images/"+mineField[2][this.alt]+".jpg";
-});
-
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button4').find('img').each(function(img) {
-    this.src = "images/"+mineField[3][this.alt]+".jpg";
-});
-
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button5').find('img').each(function(img) {
-    this.src = "images/"+mineField[4][this.alt]+".jpg";
-});
-
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button6').find('img').each(function(img) {
-    this.src = "images/"+mineField[5][this.alt]+".jpg";
-});
+    }
 }
 
 function gameOver(){
@@ -233,165 +215,53 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     victory();
     return false
  });
-/*
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').mousedown(function(e) {
-    if (e.which == 3){
-    $text = this.innerHTML
-    if($text.indexOf("white") + 1){
-        this.innerHTML = $text.replace('white', 'flag')
-        $s--;
-        writeMine();
-    }
-    if($text.indexOf("flag") + 1){
-        this.innerHTML = $text.replace('flag', 'white')
-        $s++;
-        writeMine()
-    }
-    victory();
-    return false
-}
- });
-*/
 
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').click(function(img) {
-    $a = this.innerHTML.substr(-4,2);
-    $b = this.innerHTML
+function clickCell(K, obj){
+    $a = obj.innerHTML.substr(-4,2);
+    $b = obj.innerHTML
     if ($a.substr(0,1) == '\"'){
         $a = $a.substr(-1)
     }
-    if (!(this.innerHTML.indexOf('flag')+1)){
-    this.innerHTML = this.innerHTML.replace('white', mineField[0][$a])
-    if (mineField[0][$a] == 0) {
-        openCell(0, $a);
+    if (!(obj.innerHTML.indexOf('flag')+1)){
+    obj.innerHTML = obj.innerHTML.replace('white', mineField[K][$a])
+    if (mineField[K][$a] == 0) {
+        openCell(K, $a);
     }
-    if (mineField[0][$a] == 9) {
+    if (mineField[K][$a] == 9) {
         openAll()
-        this.innerHTML = $b.replace('white', 'blood_mine');
+        obj.innerHTML = $b.replace('white', 'blood_mine');
 
         gameOver();
     }
 }
 victory();
+}
+
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').click(function(img) {
+    clickCell(0, this)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').click(function(img) {
-    $a = this.innerHTML.substr(-4,2);
-    $b = this.innerHTML
-    if ($a.substr(0,1) == '\"'){
-        $a = $a.substr(-1)
-    }
-    if (!(this.innerHTML.indexOf('flag')+1)){
-    this.innerHTML = this.innerHTML.replace('white', mineField[1][$a])
-    if (mineField[1][$a] == 0) {
-        openCell(1, $a);
-    }
-    if (mineField[1][$a] == 9) {
-        openAll()
-        this.innerHTML = $b.replace('white', 'blood_mine');
-        gameOver()
-    }
-}
-victory();
+    clickCell(1, this)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').click(function(img) {
-    $a = this.innerHTML.substr(-4,2);
-    if ($a.substr(0,1) == '\"'){
-        $a = $a.substr(-1)
-    }
-    if (!(this.innerHTML.indexOf('flag')+1)){
-    this.innerHTML = this.innerHTML.replace('white', mineField[2][$a])
-    if (mineField[2][$a] == 0) {
-        openCell(2, $a);
-    }
-    if (mineField[2][$a] == 9) {
-        openAll()
-        this.innerHTML = this.innerHTML.replace(mineField[2][$a], 'blood_mine');
-        gameOver()
-    }
-    }
-    victory();
+    clickCell(2, this)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button4').click(function(img) {
-    $a = this.innerHTML.substr(-4,2);
-    if ($a.substr(0,1) == '\"'){
-        $a = $a.substr(-1)
-    
-    }
-    if (!(this.innerHTML.indexOf('flag')+1)){
-    this.innerHTML = this.innerHTML.replace('white', mineField[3][$a])
-    if (mineField[3][$a] == 0) {
-        openCell(3, $a);
-    }
-    if (mineField[3][$a] == 9) {
-        openAll()
-        this.innerHTML = this.innerHTML.replace(mineField[3][$a], 'blood_mine');
-        gameOver()
-    }
-    }
-    victory();
+    clickCell(3, this)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button5').click(function(img) {
-    $a = this.innerHTML.substr(-4,2);
-    if ($a.substr(0,1) == '\"'){
-        $a = $a.substr(-1)
-    }
-    if (!(this.innerHTML.indexOf('flag')+1)){
-    this.innerHTML = this.innerHTML.replace('white', mineField[4][$a])
-    if (mineField[4][$a] == 0) {
-        openCell(4, $a);
-    }
-    if (mineField[4][$a] == 9) {
-        openAll()
-        this.innerHTML = this.innerHTML.replace(mineField[4][$a], 'blood_mine');
-        gameOver()
-    }
-    }
-    victory();
+    clickCell(4, this)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button6').click(function(img) {
-    $a = this.innerHTML.substr(-4,2);
-    if ($a.substr(0,1) == '\"'){
-        $a = $a.substr(-1)
-    }
-    if (!(this.innerHTML.indexOf('flag')+1)){
-    this.innerHTML = this.innerHTML.replace('white', mineField[5][$a])
-    if (mineField[5][$a] == 0) {
-        openCell(5, $a);
-    }
-    if (mineField[5][$a] == 9) {
-        openAll()
-        this.innerHTML = this.innerHTML.replace(mineField[5][$a], 'blood_mine');
-        gameOver()
-    }
-}
-victory();
+    clickCell(5, this)
 });
 
-/*
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button').mousedown(function(img) {
-    alert(instanceOfMouseEvent.this)
-    if (this.which == 3){
-    $text = this.innerHTML
-    if($text.indexOf("white") + 1){
-        this.innerHTML = $text.replace('white', 'flag')
-        $s--;
-        writeMine();
-    }
-    if($text.indexOf("flag") + 1){
-        this.innerHTML = $text.replace('flag', 'white')
-        $s++;
-        writeMine()
-    }
-    victory();
-    return false
-}
- });
-*/
-///////////////////////
 
 function isDead(){
     k = 0;
@@ -407,183 +277,59 @@ function isDead(){
     }
 }
 
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').mousedown(function(e) {
+function centerClick(K, obj, e){
     if (e.which == 2){
-    $a = this.innerHTML.substr(-4,2);
-    $b = this.innerHTML
+    $a = obj.innerHTML.substr(-4,2);
+    $b = obj.innerHTML
     if ($a.substr(0,1) == '\"'){
         $a = $a.substr(-1)
     }
-    $disposable = mineField[0][$a]
-    if (!(this.innerHTML.indexOf('flag')+1)){
-        if (mineField[0][$a] == 9) {
+    $disposable = mineField[K][$a]
+    if (!(obj.innerHTML.indexOf('flag')+1)){
+        if (mineField[K][$a] == 9) {
         openAll()
-        this.innerHTML = $b.replace('white', 'blood_mine');
+        obj.innerHTML = $b.replace('white', 'blood_mine');
 
         gameOver();
     }
 
         victory();
-        mineField[0][$a] = 0;
-        openCell(0, $a);
-        mineField[0][$a] = $disposable
+        mineField[K][$a] = 0;
+        openCell(K, $a);
+        mineField[K][$a] = $disposable
         isDead();
     }
 }
+}
+
+
+$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').mousedown(function(e) {
+    centerClick(0, this, e)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').mousedown(function(e) {
-    if (e.which == 2){
-    $a = this.innerHTML.substr(-4,2);
-    $b = this.innerHTML
-    if ($a.substr(0,1) == '\"'){
-        $a = $a.substr(-1)
-    }
-    $disposable = mineField[1][$a]
-    if (!(this.innerHTML.indexOf('flag')+1)){
-        if (mineField[1][$a] == 9) {
-        openAll()
-        this.innerHTML = $b.replace('white', 'blood_mine');
-
-        gameOver();
-    }
-        victory();
-        mineField[1][$a] = 0;
-        openCell(1, $a);
-        mineField[1][$a] = $disposable
-        isDead();
-    }
-}
+    centerClick(1, this, e)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').mousedown(function(e) {
-    if (e.which == 2){
-    $a = this.innerHTML.substr(-4,2);
-    $b = this.innerHTML
-    if ($a.substr(0,1) == '\"'){
-        $a = $a.substr(-1)
-    }
-    $disposable = mineField[2][$a]
-    if (!(this.innerHTML.indexOf('flag')+1)){
-        if (mineField[2][$a] == 9) {
-        openAll()
-        this.innerHTML = $b.replace('white', 'blood_mine');
-
-        gameOver();
-    }
-        victory();
-        mineField[2][$a] = 0;
-        openCell(2, $a);
-        mineField[2][$a] = $disposable
-        isDead();
-    }
-}
+    centerClick(2, this, e)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button4').mousedown(function(e) {
-    if (e.which == 2){
-    $a = this.innerHTML.substr(-4,2);
-    $b = this.innerHTML
-    if ($a.substr(0,1) == '\"'){
-        $a = $a.substr(-1)
-    }
-    $disposable = mineField[3][$a]
-    if (!(this.innerHTML.indexOf('flag')+1)){
-        if (mineField[3][$a] == 9) {
-        openAll()
-        this.innerHTML = $b.replace('white', 'blood_mine');
-
-        gameOver();
-    }
-        victory();
-        mineField[3][$a] = 0;
-        openCell(3, $a);
-        mineField[3][$a] = $disposable;
-        isDead();
-    }
-}
+    centerClick(3, this, e)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button5').mousedown(function(e) {
-    if (e.which == 2){
-    $a = this.innerHTML.substr(-4,2);
-    $b = this.innerHTML
-    if ($a.substr(0,1) == '\"'){
-        $a = $a.substr(-1)
-    }
-    $disposable = mineField[4][$a]
-    if (!(this.innerHTML.indexOf('flag')+1)){
-        if (mineField[4][$a] == 9) {
-        openAll()
-        this.innerHTML = $b.replace('white', 'blood_mine');
-
-        gameOver();
-    }
-        victory();
-        mineField[4][$a] = 0;
-        openCell(4, $a);
-        mineField[4][$a] = $disposable
-        isDead();
-    }
-}
+    centerClick(4, this, e)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button6').mousedown(function(e) {
-    if (e.which == 2){
-    $a = this.innerHTML.substr(-4,2);
-    $b = this.innerHTML
-    if ($a.substr(0,1) == '\"'){
-        $a = $a.substr(-1)
-    }
-    $disposable = mineField[5][$a]
-    if (!(this.innerHTML.indexOf('flag')+1)){
-        if (mineField[5][$a] == 9) {
-        openAll()
-        this.innerHTML = $b.replace('white', 'blood_mine');
-
-        gameOver();
-    }
-        victory();
-        mineField[5][$a] = 0;
-        openCell(5, $a);
-        mineField[5][$a] = $disposable
-        isDead();
-    }
-}
+    centerClick(5, this, e)
 });
 
-/*
-//Это нужно удалить
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button1').find('img').each(function(img) {
-    this.src = "images/"+mineField[0][this.alt]+".jpg";
-});
-
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button2').find('img').each(function(img) {
-    this.src = "images/"+mineField[1][this.alt]+".jpg";
-});
-
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button3').find('img').each(function(img) {
-    this.src = "images/"+mineField[2][this.alt]+".jpg";
-});
-
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button4').find('img').each(function(img) {
-    this.src = "images/"+mineField[3][this.alt]+".jpg";
-});
-
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button5').find('img').each(function(img) {
-    this.src = "images/"+mineField[4][this.alt]+".jpg";
-});
-
-$('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button6').find('img').each(function(img) {
-    this.src = "images/"+mineField[5][this.alt]+".jpg";
-});
-*/
 
 function ifFlag(K, I){
-    $s = 0
-        switch(K){
-        case 0:
-        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').find('img').each(function(img){
+        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button'+(K+1)).find('img').each(function(img){
             if (this.alt == I) {
                 if(this.src.indexOf('flag')+1){
                    $s = 1
@@ -593,75 +339,9 @@ function ifFlag(K, I){
                 }
             }
         });
-        break;
-
-        case 1:
-        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').find('img').each(function(img){
-            if (this.alt == I) {
-                if(this.src.indexOf('flag')+1){
-                   $s = 1
-                }
-                else{
-                    $s = 0
-                }
-            }
-        });
-        break;
-
-        case 2:
-        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').find('img').each(function(img){
-            if (this.alt == I) {
-                if(this.src.indexOf('flag')+1){
-                   $s = 1
-                }
-                else{
-                    $s = 0
-                }
-            }
-        });
-        break;
-
-        case 3:
-        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button4').find('img').each(function(img){
-            if (this.alt == I) {
-                if(this.src.indexOf('flag')+1){
-                   $s = 1
-                }
-                else{
-                    $s = 0
-                }
-            }
-        });
-        break;
-
-        case 4:
-        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button5').find('img').each(function(img){
-            if (this.alt == I) {
-                if(this.src.indexOf('flag')+1){
-                   $s = 1
-                }
-                else{
-                    $s = 0
-                }
-            }
-        });
-        break;
-
-        case 5:
-        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button6').find('img').each(function(img){
-            if (this.alt == I) {
-                if(this.src.indexOf('flag')+1){
-                   $s = 1
-                }
-                else{
-                    $s = 0
-                }
-            }
-        });
-        break;
-    }
     return $s
 }
+
 
 function mineCount (mineField, K, I)
 {
@@ -1072,68 +752,14 @@ function mineCount (mineField, K, I)
 }
 
 function openMe(K, I){
-        switch(K){
-        case 0:
-        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').find('img').each(function(img){
+        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button'+(K+1)).find('img').each(function(img){
             if (this.alt == I) {
                 if(this.src.indexOf('white')+1){
-                   this.src = "images/"+mineField[0][this.alt]+".jpg";
+                   this.src = "images/"+mineField[K][this.alt]+".jpg";
                 }
             }
         });
-        break;
-
-        case 1:
-        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').find('img').each(function(img){
-            if (this.alt == I) {
-                if(this.src.indexOf('white')+1){
-                   this.src = "images/"+mineField[1][this.alt]+".jpg";
-                }
-            }
-        });
-        break;
-
-        case 2:
-        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').find('img').each(function(img){
-            if (this.alt == I) {
-                if(this.src.indexOf('white')+1){
-                   this.src = "images/"+mineField[2][this.alt]+".jpg";
-                }
-            }
-        });
-        break;
-
-        case 3:
-        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button4').find('img').each(function(img){
-            if (this.alt == I) {
-                if(this.src.indexOf('white')+1){
-                   this.src = "images/"+mineField[3][this.alt]+".jpg";
-                }
-            }
-        });
-        break;
-
-        case 4:
-        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button5').find('img').each(function(img){
-            if (this.alt == I) {
-                if(this.src.indexOf('white')+1){
-                   this.src = "images/"+mineField[4][this.alt]+".jpg";
-                }
-            }
-        });
-        break;
-
-        case 5:
-        $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button6').find('img').each(function(img){
-            if (this.alt == I) {
-                if(this.src.indexOf('white')+1){
-                   this.src = "images/"+mineField[5][this.alt]+".jpg";
-                }
-            }
-        });
-        break;
     }
-}
 
 function openCell (K, I)
 {
