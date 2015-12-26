@@ -20,6 +20,12 @@ $('body').find('.design').click(function() {
 	if (document.getElementById('radio3').checked) $a = document.getElementById('radio3').value;
 	if (document.getElementById('number').value > 1 ) $a = document.getElementById('number').value
     //setCookie('number', $a, new Date( (new Date()).getTime() + ( 60 * 60 * 24 * 1000 ) ), '/');
+    if ($a > 200){
+        $a = 200
+    }
+    if ($a < 10){
+        $a = 10
+    }
     var s = 'index.html?'+escape($a);
     this.href=s;
 });
