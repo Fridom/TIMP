@@ -972,6 +972,11 @@ interval = setInterval(function(){
     
 }, 1000)
 
+girls = setInterval(function(){
+    $a = Mine.getRandomInt(3, 13);
+    document.body.style.background="url(images/fon" + $a + ".jpg)"
+},2000)
+
 Play.openAll = function(){
     for (i=0;i<6;i++){
         $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button'+(i+1)).find('img').each(function(img) {
