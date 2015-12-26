@@ -189,6 +189,7 @@ function victory(){
             '<a href = \"ready.html\"><h1>Начать сначала</h1></a></center></div>');
         $('body').each(function(){
         this.innerHTML += $b
+        $s = 0
     });
     }
     if (k==0){
@@ -201,6 +202,7 @@ function victory(){
     });
     }
 }
+writeMine();
 }
 
 
@@ -284,8 +286,9 @@ function centerClick(K, obj, e){
     if ($a.substr(0,1) == '\"'){
         $a = $a.substr(-1)
     }
+
     $disposable = mineField[K][$a]
-    if (!(obj.innerHTML.indexOf('flag')+1)){
+    if (!(obj.innerHTML.indexOf('flag')+1) && !(obj.innerHTML.indexOf('white')+1)){
         if (mineField[K][$a] == 9) {
         openAll()
         obj.innerHTML = $b.replace('white', 'blood_mine');
