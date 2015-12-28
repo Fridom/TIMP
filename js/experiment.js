@@ -40,8 +40,9 @@ $('body').keydown(function(evt) {
 });
 
 var Play = function(){}
+var Count = function(){}
 
- Play.mineCount = function(mineField, K, I)
+ Count.Counter = function(mineField, K, I)
 {
     k = 0;
     N = 8;
@@ -449,423 +450,425 @@ var Play = function(){}
     return k;
 }
 
-Play.openMe = function(K, I){
+var Open = function(){}
+
+Open.openMe = function(K, I){
         $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button'+(K+1)).find('img').each(function(img){
             if (this.alt == I) {
                 if(this.src.indexOf('white')+1){
-                   this.src = "images/"+mineField[K][this.alt]+".jpg";
+                   this.src = "images/"+Mine.mineField[K][this.alt]+".jpg";
                 }
             }
         });
     }
 
-Play.openCell = function(K, I)
+Open.openCell = function(K, I)
 {
     N = 8;
-    Play.openMe(K, I);
-    if (mineField[K][I] == 0)
+    Open.openMe(K, I);
+    if (Mine.mineField[K][I] == 0)
     {
-        mineField[K][I] += 100;
+        Mine.mineField[K][I] += 100;
         if (I == 0) // (левый верхний угол одной стороны)
         {
-            Play.openCell(K, 1); // вправо
-            Play.openCell(K, N+1); // вправо-вниз
-            Play.openCell(K, N); // вниз
+            Open.openCell(K, 1); // вправо
+            Open.openCell(K, N+1); // вправо-вниз
+            Open.openCell(K, N); // вниз
             switch (K)
             {
                 case 0:
-                Play.openCell(4, 0); // влево
-                Play.openCell(4, 1); // влево-вниз
-                Play.openCell(3, N-1); // вверх
-                Play.openCell(3, N-2); // вверх вправо
+                Open.openCell(4, 0); // влево
+                Open.openCell(4, 1); // влево-вниз
+                Open.openCell(3, N-1); // вверх
+                Open.openCell(3, N-2); // вверх вправо
                 break;
 
                 case 1:
-                Play.openCell(4, N-1); // влево
-                Play.openCell(4, 2*N-1); // влево-вниз
-                Play.openCell(0, N*(N-1)); // вверх 
-                Play.openCell(0, N*(N-1)+1); // вверх вправо 
+                Open.openCell(4, N-1); // влево
+                Open.openCell(4, 2*N-1); // влево-вниз
+                Open.openCell(0, N*(N-1)); // вверх 
+                Open.openCell(0, N*(N-1)+1); // вверх вправо 
                 break;
 
                 case 2:
-                Play.openCell(1, N-1); // влево
-                Play.openCell(1, 2*N-1); // влево-вниз
-                Play.openCell(0, N*N-1); // вверх
-                Play.openCell(0, N*(N-1)-1); // вверх вправо
+                Open.openCell(1, N-1); // влево
+                Open.openCell(1, 2*N-1); // влево-вниз
+                Open.openCell(0, N*N-1); // вверх
+                Open.openCell(0, N*(N-1)-1); // вверх вправо
                 break;
                  
                 case 3:
-                Play.openCell(2, N-1); // влево
-                Play.openCell(2, 2*N-1); // влево-вниз
-                Play.openCell(0, N-1); // вверх
-                Play.openCell(0, N-2); // вверх вправо
+                Open.openCell(2, N-1); // влево
+                Open.openCell(2, 2*N-1); // влево-вниз
+                Open.openCell(0, N-1); // вверх
+                Open.openCell(0, N-2); // вверх вправо
                 break;
                 
                 case 4:
-                Play.openCell(3, N-1); // влево
-                Play.openCell(3, 2*N-1); // влево-вниз
-                Play.openCell(0, 0); // вверх
-                Play.openCell(0, N); // вверх вправо
+                Open.openCell(3, N-1); // влево
+                Open.openCell(3, 2*N-1); // влево-вниз
+                Open.openCell(0, 0); // вверх
+                Open.openCell(0, N); // вверх вправо
                 break;
                 
                 case 5:
-                Play.openCell(2, N*N-1); // влево
-                Play.openCell(2, N*N-2); // влево-вниз
-                Play.openCell(3, N*(N-1)); // вверх
-                Play.openCell(3, N*(N-1)+1); // вверх вправо
+                Open.openCell(2, N*N-1); // влево
+                Open.openCell(2, N*N-2); // влево-вниз
+                Open.openCell(3, N*(N-1)); // вверх
+                Open.openCell(3, N*(N-1)+1); // вверх вправо
                 break;
             } 
         }
 
         if (I == N-1) // (правый верхний угол одной стороны)
         {
-            Play.openCell(K, N-2); // влево
-            Play.openCell(K, 2*N-2); // влево-вниз
-            Play.openCell(K, 2*N-1); // вниз
+            Open.openCell(K, N-2); // влево
+            Open.openCell(K, 2*N-2); // влево-вниз
+            Open.openCell(K, 2*N-1); // вниз
             switch (K)
             {
                 case 0:
-                Play.openCell(2, N-1); // вправо
-                Play.openCell(2, N-2); // вправо-вниз
-                Play.openCell(3, 0); // вверх
-                Play.openCell(3, 1); // вверх-влево
+                Open.openCell(2, N-1); // вправо
+                Open.openCell(2, N-2); // вправо-вниз
+                Open.openCell(3, 0); // вверх
+                Open.openCell(3, 1); // вверх-влево
                 break;
 
                 case 1:
-                Play.openCell(2, 0); // вправо
-                Play.openCell(2, N); // вправо-вниз
-                Play.openCell(0, N*N-1); // вверх 
-                Play.openCell(0, N*N-2); // вверх-влево 
+                Open.openCell(2, 0); // вправо
+                Open.openCell(2, N); // вправо-вниз
+                Open.openCell(0, N*N-1); // вверх 
+                Open.openCell(0, N*N-2); // вверх-влево 
                 break;
 
                 case 2:
-                Play.openCell(3, 0); // вправо
-                Play.openCell(3, N); // вправо-вниз
-                Play.openCell(0, N-1); // вверх
-                Play.openCell(0, 2*N-1); // вверх-влево
+                Open.openCell(3, 0); // вправо
+                Open.openCell(3, N); // вправо-вниз
+                Open.openCell(0, N-1); // вверх
+                Open.openCell(0, 2*N-1); // вверх-влево
                 break;
                  
                 case 3:
-                Play.openCell(4, 0); // вправо
-                Play.openCell(4, N); // вправо-вниз
-                Play.openCell(0, 0); // вверх
-                Play.openCell(0, 1); // вверх-влево
+                Open.openCell(4, 0); // вправо
+                Open.openCell(4, N); // вправо-вниз
+                Open.openCell(0, 0); // вверх
+                Open.openCell(0, 1); // вверх-влево
                 break;
                 
                 case 4:
-                Play.openCell(1, 0); // вправо
-                Play.openCell(1, N); // вправо-вниз
-                Play.openCell(0, N*(N-1)); // вверх
-                Play.openCell(0, N*(N-2)); // вверх-влево
+                Open.openCell(1, 0); // вправо
+                Open.openCell(1, N); // вправо-вниз
+                Open.openCell(0, N*(N-1)); // вверх
+                Open.openCell(0, N*(N-2)); // вверх-влево
                 break;
                 
                 case 5:
-                Play.openCell(4, N*(N-1)); // вправо
-                Play.openCell(4, N*(N-1)+1); // вправо-вниз
-                Play.openCell(3, N*N-1); // вверх
-                Play.openCell(3, N*N-2); // вверх-влево
+                Open.openCell(4, N*(N-1)); // вправо
+                Open.openCell(4, N*(N-1)+1); // вправо-вниз
+                Open.openCell(3, N*N-1); // вверх
+                Open.openCell(3, N*N-2); // вверх-влево
                 break;
             } 
         }
 
         if (I == N*(N-1)) // (левый нижний угол одной стороны)
         {
-            Play.openCell(K, N*(N-2)); // вверх
-            Play.openCell(K, N*(N-2)+1); // вправо-вверх
-            Play.openCell(K, N*(N-1)+1); // вправо
+            Open.openCell(K, N*(N-2)); // вверх
+            Open.openCell(K, N*(N-2)+1); // вправо-вверх
+            Open.openCell(K, N*(N-1)+1); // вправо
             switch (K)
             {
                 case 0:
-                Play.openCell(4, N-2); // влево-сверху
-                Play.openCell(4, N-1); // влево
-                Play.openCell(1, 0); // вниз
-                Play.openCell(1, 1); // вниз-вправо
+                Open.openCell(4, N-2); // влево-сверху
+                Open.openCell(4, N-1); // влево
+                Open.openCell(1, 0); // вниз
+                Open.openCell(1, 1); // вниз-вправо
                 break;
 
                 case 1:
-                Play.openCell(4, N*(N-1)-1); // влево-сверху
-                Play.openCell(4, N*N-1); // влево
-                Play.openCell(5, N*N-1); // вниз
-                Play.openCell(5, N*N-2); // вниз-вправо
+                Open.openCell(4, N*(N-1)-1); // влево-сверху
+                Open.openCell(4, N*N-1); // влево
+                Open.openCell(5, N*N-1); // вниз
+                Open.openCell(5, N*N-2); // вниз-вправо
                 break;
 
                 case 2:
-                Play.openCell(1, N*(N-1)-1); // влево-сверху
-                Play.openCell(1, N*N-1); // влево
-                Play.openCell(5, N*(N-1)); // вниз
-                Play.openCell(5, N*(N-2)); // вниз-вправо
+                Open.openCell(1, N*(N-1)-1); // влево-сверху
+                Open.openCell(1, N*N-1); // влево
+                Open.openCell(5, N*(N-1)); // вниз
+                Open.openCell(5, N*(N-2)); // вниз-вправо
                 break;
                  
                 case 3:
-                Play.openCell(2, N*(N-1)-1); // влево-сверху
-                Play.openCell(2, N*N-1); // влево
-                Play.openCell(5, 0); // вниз
-                Play.openCell(5, 1); // вниз-вправо
+                Open.openCell(2, N*(N-1)-1); // влево-сверху
+                Open.openCell(2, N*N-1); // влево
+                Open.openCell(5, 0); // вниз
+                Open.openCell(5, 1); // вниз-вправо
                 break;
                 
                 case 4:
-                Play.openCell(3, N*(N-1)-1); // влево-сверху
-                Play.openCell(3, N*N-1); // влево
-                Play.openCell(5, N-1); // вниз
-                Play.openCell(5, 2*N-1); // вниз-вправо
+                Open.openCell(3, N*(N-1)-1); // влево-сверху
+                Open.openCell(3, N*N-1); // влево
+                Open.openCell(5, N-1); // вниз
+                Open.openCell(5, 2*N-1); // вниз-вправо
                 break;
                 
                 case 5:
-                Play.openCell(2, N*(N-1)+1); // вправо
-                Play.openCell(2, N*(N-1)); // вправо-вниз
-                Play.openCell(1, N*N-1); // вверх
-                Play.openCell(1, N*N-2); // вверх-вправо
+                Open.openCell(2, N*(N-1)+1); // вправо
+                Open.openCell(2, N*(N-1)); // вправо-вниз
+                Open.openCell(1, N*N-1); // вверх
+                Open.openCell(1, N*N-2); // вверх-вправо
                 break;
             } 
         }
 
         if (I == N*N-1) // (правый нижний угол одной стороны)
         {
-            Play.openCell(K, N*(N-1)-1); // вверх
-            Play.openCell(K, N*(N-1)-2); // влево-вверх
-            Play.openCell(K, N*N-2); // влево
+            Open.openCell(K, N*(N-1)-1); // вверх
+            Open.openCell(K, N*(N-1)-2); // влево-вверх
+            Open.openCell(K, N*N-2); // влево
             switch (K)
             {
                 case 0:
-                Play.openCell(2, 1); // вправо-вверх
-                Play.openCell(2, 0); // вправо
-                Play.openCell(1, N-1); // вниз
-                Play.openCell(1, N-2); // вниз-влево
+                Open.openCell(2, 1); // вправо-вверх
+                Open.openCell(2, 0); // вправо
+                Open.openCell(1, N-1); // вниз
+                Open.openCell(1, N-2); // вниз-влево
                 break;
 
                 case 1:
-                Play.openCell(2, N*(N-2)); // вправо-вверх
-                Play.openCell(2, N*(N-1)); // вправо
-                Play.openCell(5, N*(N-1)); // вниз
-                Play.openCell(5, N*(N-1)+1); // вниз-влево
+                Open.openCell(2, N*(N-2)); // вправо-вверх
+                Open.openCell(2, N*(N-1)); // вправо
+                Open.openCell(5, N*(N-1)); // вниз
+                Open.openCell(5, N*(N-1)+1); // вниз-влево
                 break;
 
                 case 2:
-                Play.openCell(3, N*(N-2)); // вправо-вверх
-                Play.openCell(3, N*(N-1)); // вправо
-                Play.openCell(5, 0); // вниз
-                Play.openCell(5, N); // вниз-влево
+                Open.openCell(3, N*(N-2)); // вправо-вверх
+                Open.openCell(3, N*(N-1)); // вправо
+                Open.openCell(5, 0); // вниз
+                Open.openCell(5, N); // вниз-влево
                 break;
                  
                 case 3:
-                Play.openCell(4, N*(N-2)); // вправо-вверх
-                Play.openCell(4, N*(N-1)); // вправо
-                Play.openCell(5, N-1); // вниз
-                Play.openCell(5, N-2); // вниз-влево
+                Open.openCell(4, N*(N-2)); // вправо-вверх
+                Open.openCell(4, N*(N-1)); // вправо
+                Open.openCell(5, N-1); // вниз
+                Open.openCell(5, N-2); // вниз-влево
                 break;
                 
                 case 4:
-                Play.openCell(1, N*(N-2)); // вправо-вверх
-                Play.openCell(1, N*(N-1)); // вправо
-                Play.openCell(5, N*N-1); // вниз
-                Play.openCell(5, N*(N-1)-1); // вниз-влево
+                Open.openCell(1, N*(N-2)); // вправо-вверх
+                Open.openCell(1, N*(N-1)); // вправо
+                Open.openCell(5, N*N-1); // вниз
+                Open.openCell(5, N*(N-1)-1); // вниз-влево
                 break;
                 
                 case 5:
-                Play.openCell(4, N*N-2); // вправо-вверх
-                Play.openCell(4, N*N-1); // вправо
-                Play.openCell(1, N*(N-1)); // вниз
-                Play.openCell(1, N*(N-1)+1); // вниз-влево
+                Open.openCell(4, N*N-2); // вправо-вверх
+                Open.openCell(4, N*N-1); // вправо
+                Open.openCell(1, N*(N-1)); // вниз
+                Open.openCell(1, N*(N-1)+1); // вниз-влево
                 break;
             } 
         }
 
         if ((I / N >> 0 == 0) && (I != 0) && (I != N-1)) // верхняя грань
         {
-            Play.openCell(K, I-1); // влево
-            Play.openCell(K, I-(-1)); // вправо
-            Play.openCell(K, I-(-N)+1); // вправо-вниз
-            Play.openCell(K, I-(-N)); // вниз
-            Play.openCell(K, I-(-N)-1); // влево-вниз
+            Open.openCell(K, I-1); // влево
+            Open.openCell(K, I-(-1)); // вправо
+            Open.openCell(K, I-(-N)+1); // вправо-вниз
+            Open.openCell(K, I-(-N)); // вниз
+            Open.openCell(K, I-(-N)-1); // влево-вниз
             switch (K)
             {
                 case 0:
-                Play.openCell(3, N-I); // влево-вверх
-                Play.openCell(3, N-I-1); // вверх
-                Play.openCell(3, N-I-2); // вверх-вправо
+                Open.openCell(3, N-I); // влево-вверх
+                Open.openCell(3, N-I-1); // вверх
+                Open.openCell(3, N-I-2); // вверх-вправо
                 break;
 
                 case 1:
-                Play.openCell(0, N*(N-1)-(-I)-1); // влево-вверх
-                Play.openCell(0, N*(N-1)-(-I)); // вверх
-                Play.openCell(0, N*(N-1)-(-I)+1); // вверх-вправо
+                Open.openCell(0, N*(N-1)-(-I)-1); // влево-вверх
+                Open.openCell(0, N*(N-1)-(-I)); // вверх
+                Open.openCell(0, N*(N-1)-(-I)+1); // вверх-вправо
                 break;
 
                 case 2:
-                Play.openCell(0, N*(N-I+1)-1); // влево-вверх
-                Play.openCell(0, N*(N-I)-1); // вверх
-                Play.openCell(0, N*(N-I-1)-1); // вверх-вправо
+                Open.openCell(0, N*(N-I+1)-1); // влево-вверх
+                Open.openCell(0, N*(N-I)-1); // вверх
+                Open.openCell(0, N*(N-I-1)-1); // вверх-вправо
                 break;
                  
                 case 3:
-                Play.openCell(0, N-I); // влево-вверх 
-                Play.openCell(0, N-I-1); // вверх 
-                Play.openCell(0, N-I-2); // вверх-вправо 
+                Open.openCell(0, N-I); // влево-вверх 
+                Open.openCell(0, N-I-1); // вверх 
+                Open.openCell(0, N-I-2); // вверх-вправо 
                 break;
                 
                 case 4:
-                Play.openCell(0, N*(I-1)); // влево-вверх
-                Play.openCell(0, N*I); // вверх
-                Play.openCell(0, N*(I-(-1))); // вверх-вправо
+                Open.openCell(0, N*(I-1)); // влево-вверх
+                Open.openCell(0, N*I); // вверх
+                Open.openCell(0, N*(I-(-1))); // вверх-вправо
                 break;
                 
                 case 5:
-                Play.openCell(3, N*(N-1)-(-I)-1); // влево-вверх
-                Play.openCell(3, N*(N-1)-(-I)); // вверх
-                Play.openCell(3, N*(N-1)-(-I)+1); // вверх-вправо
+                Open.openCell(3, N*(N-1)-(-I)-1); // влево-вверх
+                Open.openCell(3, N*(N-1)-(-I)); // вверх
+                Open.openCell(3, N*(N-1)-(-I)+1); // вверх-вправо
                 break;
             } 
         }
 
         if ((I % N == 0) && (I != 0) && (I != N*(N-1))) // левая грань
         {
-            Play.openCell(K, I-N); // вверх
-            Play.openCell(K, I-N+1); // вправо-вверх
-            Play.openCell(K, I-(-1)); // вправо
-            Play.openCell(K, I-(-N)+1); // вправо-вниз
-            Play.openCell(K, I-(-N)); // вниз
+            Open.openCell(K, I-N); // вверх
+            Open.openCell(K, I-N+1); // вправо-вверх
+            Open.openCell(K, I-(-1)); // вправо
+            Open.openCell(K, I-(-N)+1); // вправо-вниз
+            Open.openCell(K, I-(-N)); // вниз
             switch (K)
             {
                 case 0:
-                Play.openCell(4, (I / N >> 0)-1); // влево-вверх
-                Play.openCell(4, (I / N >> 0)); // влево
-                Play.openCell(4, (I / N >> 0)+1); // влево-вниз
+                Open.openCell(4, (I / N >> 0)-1); // влево-вверх
+                Open.openCell(4, (I / N >> 0)); // влево
+                Open.openCell(4, (I / N >> 0)+1); // влево-вниз
                 break;
 
                 case 1:
-                Play.openCell(4, I-1); // влево-вверх
-                Play.openCell(4, I-(-N)-1); // влево
-                Play.openCell(4, I-(-2*N)-1); // влево-вниз
+                Open.openCell(4, I-1); // влево-вверх
+                Open.openCell(4, I-(-N)-1); // влево
+                Open.openCell(4, I-(-2*N)-1); // влево-вниз
                 break;
 
                 case 2:
-                Play.openCell(1, I-1); // влево-вверх
-                Play.openCell(1, I-(-N)-1); // влево
-                Play.openCell(1, I-(-2*N)-1); // влево-вниз
+                Open.openCell(1, I-1); // влево-вверх
+                Open.openCell(1, I-(-N)-1); // влево
+                Open.openCell(1, I-(-2*N)-1); // влево-вниз
                 break;
                  
                 case 3:
-                Play.openCell(2, I-1); // влево-вверх
-                Play.openCell(2, I-(-N)-1); // влево
-                Play.openCell(2, I-(-2*N)-1); // влево-вниз
+                Open.openCell(2, I-1); // влево-вверх
+                Open.openCell(2, I-(-N)-1); // влево
+                Open.openCell(2, I-(-2*N)-1); // влево-вниз
                 break;
                 
                 case 4:
-                Play.openCell(3, I-1); // влево-вверх
-                Play.openCell(3, I-(-N)-1); // влево
-                Play.openCell(3, I-(-2*N)-1); // влево-вниз
+                Open.openCell(3, I-1); // влево-вверх
+                Open.openCell(3, I-(-N)-1); // влево
+                Open.openCell(3, I-(-2*N)-1); // влево-вниз
                 break;
                 
                 case 5:
-                Play.openCell(2, N*N-(I / N >> 0)); // влево-вверх
-                Play.openCell(2, N*N-1-(I / N >> 0)); // влево
-                Play.openCell(2, N*N-2-(I / N >> 0)); // влево-вниз
+                Open.openCell(2, N*N-(I / N >> 0)); // влево-вверх
+                Open.openCell(2, N*N-1-(I / N >> 0)); // влево
+                Open.openCell(2, N*N-2-(I / N >> 0)); // влево-вниз
                 break;
             } 
         }
 
         if ((I % N == N-1) && (I != N-1) && (I != N*N-1)) // правая грань
         {
-            Play.openCell(K, I-N); // вверх
-            Play.openCell(K, I-N-1); // влево-вверх
-            Play.openCell(K, I-1); // влево
-            Play.openCell(K, I-(-N)-1); // влево-вниз
-            Play.openCell(K, I-(-N)); // вниз
+            Open.openCell(K, I-N); // вверх
+            Open.openCell(K, I-N-1); // влево-вверх
+            Open.openCell(K, I-1); // влево
+            Open.openCell(K, I-(-N)-1); // влево-вниз
+            Open.openCell(K, I-(-N)); // вниз
             switch (K)
             {
                 case 0:
-                Play.openCell(2, N-(I / N >> 0)); // вправо-вверх
-                Play.openCell(2, N-1-(I / N >> 0)); // вправо
-                Play.openCell(2, N-2-(I / N >> 0)); // вправо-вниз
+                Open.openCell(2, N-(I / N >> 0)); // вправо-вверх
+                Open.openCell(2, N-1-(I / N >> 0)); // вправо
+                Open.openCell(2, N-2-(I / N >> 0)); // вправо-вниз
                 break;
 
                 case 1:
-                Play.openCell(2, N*((I / N >> 0)-1)); // вправо-вверх
-                Play.openCell(2, N*(I / N >> 0)); // вправо
-                Play.openCell(2, N*((I / N >> 0)+1)); // вправо-вниз
+                Open.openCell(2, N*((I / N >> 0)-1)); // вправо-вверх
+                Open.openCell(2, N*(I / N >> 0)); // вправо
+                Open.openCell(2, N*((I / N >> 0)+1)); // вправо-вниз
                 break;
 
                 case 2:
-                Play.openCell(3, N*((I / N >> 0)-1)); // вправо-вверх
-                Play.openCell(3, N*(I / N >> 0)); // вправо
-                Play.openCell(3, N*((I / N >> 0)+1)); // вправо-вниз
+                Open.openCell(3, N*((I / N >> 0)-1)); // вправо-вверх
+                Open.openCell(3, N*(I / N >> 0)); // вправо
+                Open.openCell(3, N*((I / N >> 0)+1)); // вправо-вниз
                 break;
                  
                 case 3:
-                Play.openCell(4, N*((I / N >> 0)-1)); // вправо-вверх
-                Play.openCell(4, N*(I / N >> 0)); // вправо
-                Play.openCell(4, N*((I / N >> 0)+1)); // вправо-вниз
+                Open.openCell(4, N*((I / N >> 0)-1)); // вправо-вверх
+                Open.openCell(4, N*(I / N >> 0)); // вправо
+                Open.openCell(4, N*((I / N >> 0)+1)); // вправо-вниз
                 break;
                 
                 case 4:
-                Play.openCell(1, N*((I / N >> 0)-1)); // вправо-вверх
-                Play.openCell(1, N*(I / N >> 0)); // вправо
-                Play.openCell(1, N*((I / N >> 0)+1)); // вправо-вниз
+                Open.openCell(1, N*((I / N >> 0)-1)); // вправо-вверх
+                Open.openCell(1, N*(I / N >> 0)); // вправо
+                Open.openCell(1, N*((I / N >> 0)+1)); // вправо-вниз
                 break;
                 
                 case 5:
-                Play.openCell(4, N*(N-1)+(I / N >> 0)-1); // вправо-вверх
-                Play.openCell(4, N*(N-1)+(I / N >> 0)); // вправо
-                Play.openCell(4, N*(N-1)+(I / N >> 0)+1); // вправо-вниз
+                Open.openCell(4, N*(N-1)+(I / N >> 0)-1); // вправо-вверх
+                Open.openCell(4, N*(N-1)+(I / N >> 0)); // вправо
+                Open.openCell(4, N*(N-1)+(I / N >> 0)+1); // вправо-вниз
                 break;
             } 
         }
         if ((I / N >> 0 == 7) && (I != N*(N-1)) && (I != N*N-1)) // нижняя грань
         {
-            Play.openCell(K, I-1); // влево
-            Play.openCell(K, I-1-(N)); // влево-вверх
-            Play.openCell(K, I-0-(N)); // вверх
-            Play.openCell(K, I-(-1)-(N)); // вправо-вверх
-            Play.openCell(K, I-(-1)); // вправо
+            Open.openCell(K, I-1); // влево
+            Open.openCell(K, I-1-(N)); // влево-вверх
+            Open.openCell(K, I-0-(N)); // вверх
+            Open.openCell(K, I-(-1)-(N)); // вправо-вверх
+            Open.openCell(K, I-(-1)); // вправо
             switch (K)
             {
                 case 0:
-                Play.openCell(1, (I % N)-1); // вниз-влево
-                Play.openCell(1, (I % N)); // вниз
-                Play.openCell(1, (I % N)+1); // вниз-вправо
+                Open.openCell(1, (I % N)-1); // вниз-влево
+                Open.openCell(1, (I % N)); // вниз
+                Open.openCell(1, (I % N)+1); // вниз-вправо
                 break;
 
                 case 1:
-                Play.openCell(5, N*N-(I % N)); // вниз-влево
-                Play.openCell(5, N*N-(I % N)-1); // вниз
-                Play.openCell(5, N*N-(I % N)-2); // вниз-вправо
+                Open.openCell(5, N*N-(I % N)); // вниз-влево
+                Open.openCell(5, N*N-(I % N)-1); // вниз
+                Open.openCell(5, N*N-(I % N)-2); // вниз-вправо
                 break;
 
                 case 2:
-                Play.openCell(5, N*(N-(I % N))); // вниз-влево
-                Play.openCell(5, N*(N-(I % N)-1)); // вниз
-                Play.openCell(5, N*(N-(I % N)-2)); // вниз-вправо
+                Open.openCell(5, N*(N-(I % N))); // вниз-влево
+                Open.openCell(5, N*(N-(I % N)-1)); // вниз
+                Open.openCell(5, N*(N-(I % N)-2)); // вниз-вправо
                 break;
                  
                 case 3:
-                Play.openCell(5, (I % N)-1); // вниз-влево
-                Play.openCell(5, (I % N)); // вниз
-                Play.openCell(5, (I % N)+1); // вниз-вправо
+                Open.openCell(5, (I % N)-1); // вниз-влево
+                Open.openCell(5, (I % N)); // вниз
+                Open.openCell(5, (I % N)+1); // вниз-вправо
                 break;
                 
                 case 4:
-                Play.openCell(5, (I % N)*N-1); // вниз-влево
-                Play.openCell(5, ((I % N)+1)*N-1); // вниз
-                Play.openCell(5, ((I % N)+2)*N-1); // вниз-вправо
+                Open.openCell(5, (I % N)*N-1); // вниз-влево
+                Open.openCell(5, ((I % N)+1)*N-1); // вниз
+                Open.openCell(5, ((I % N)+2)*N-1); // вниз-вправо
                 break;
                 
                 case 5:
-                Play.openCell(1, N*N-(I % N)); // вниз-влево
-                Play.openCell(1, N*N-(I % N)-1); // вниз
-                Play.openCell(1, N*N-(I % N)-2); // вниз-вправо
+                Open.openCell(1, N*N-(I % N)); // вниз-влево
+                Open.openCell(1, N*N-(I % N)-1); // вниз
+                Open.openCell(1, N*N-(I % N)-2); // вниз-вправо
                 break;
             } 
         }
         if ((I / N >> 0 != 0) && (I / N >> 0 != 7) && (I % N != 0) && (I % N != 7)) // не граничный случай
         {
-            Play.openCell(K, I-(-N)+1); // вправо-вниз
-            Play.openCell(K, I-(-N)); // вниз
-            Play.openCell(K, I-(-N)-1); // влево-вниз
-            Play.openCell(K, I-1); // влево
-            Play.openCell(K, I-1-N); // влево-вверх
-            Play.openCell(K, I-N); // вверх
-            Play.openCell(K, I-N+1); // вправо-вверх
-            Play.openCell(K, I-(-1)); // вправо
+            Open.openCell(K, I-(-N)+1); // вправо-вниз
+            Open.openCell(K, I-(-N)); // вниз
+            Open.openCell(K, I-(-N)-1); // влево-вниз
+            Open.openCell(K, I-1); // влево
+            Open.openCell(K, I-1-N); // влево-вверх
+            Open.openCell(K, I-N); // вверх
+            Open.openCell(K, I-N+1); // вправо-вверх
+            Open.openCell(K, I-(-1)); // вправо
         }
     }
 }
@@ -901,40 +904,40 @@ i=0
  });
 
 var Mine = function(){}
+var Rand = function(){}
 
-
-Mine.getRandomInt = function(min, max){
+Rand.getRandomInt = function(min, max){
     return Math.floor(Math.random() * (max-min+1)) + min;
 }
 
 Mine.randomMine = function(n){
     limit = [0,0,0,0,0,0];
-    mineField = [[],[],[],[],[],[]];
+    Mine.mineField = [[],[],[],[],[],[]];
     for (i=0;i<64;i++){
-        mineField[0].push(0);
-        mineField[1].push(0);
-        mineField[2].push(0);
-        mineField[3].push(0);
-        mineField[4].push(0);
-        mineField[5].push(0);
+        Mine.mineField[0].push(0);
+        Mine.mineField[1].push(0);
+        Mine.mineField[2].push(0);
+        Mine.mineField[3].push(0);
+        Mine.mineField[4].push(0);
+        Mine.mineField[5].push(0);
     }
     for (i=0;i<n;i++){
         do
         {
-            a = Mine.getRandomInt(0, 5);
-            b = Mine.getRandomInt(0, 63);
-        } while (mineField[a][b] == 9 || limit[a] > n/4)
-        mineField[a][b] = 9;
+            a = Rand.getRandomInt(0, 5);
+            b = Rand.getRandomInt(0, 63);
+        } while (Mine.mineField[a][b] == 9 || limit[a] > n/4)
+        Mine.mineField[a][b] = 9;
         limit[a]++;
     }
     for(i=0;i<6;i++){
         for(j=0;j<64;j++){
-            if(mineField[i][j] != 9){
-                mineField[i][j] = Play.mineCount(mineField, i, j);
+            if(Mine.mineField[i][j] != 9){
+                Mine.mineField[i][j] = Count.Counter(Mine.mineField, i, j);
             }
         }
     }
-    return(mineField)
+    return(Mine.mineField)
 }
 
 Mine.writeMine = function(){
@@ -946,7 +949,7 @@ $('body').find('div#mines').find("font").each(function(){
 var $s = location.search;
 $mine_max = $s.substr(1-$s.length)
 $s = $s.substr(1-$s.length)
-mineField = Mine.randomMine($s);
+Mine.mineField = Mine.randomMine($s);
 Mine.writeMine()
 
 
@@ -973,14 +976,15 @@ interval = setInterval(function(){
 }, 1000)
 
 girls = setInterval(function(){
-    $a = Mine.getRandomInt(3, 13);
+    $a = Rand.getRandomInt(3, 13);
     document.body.style.background="url(images/fon" + $a + ".jpg)"
-},2000)
+    document.body.style.backgroundSize="100%"
+},10000)
 
-Play.openAll = function(){
+Open.openAll = function(){
     for (i=0;i<6;i++){
         $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('.button'+(i+1)).find('img').each(function(img) {
-    this.src = "images/"+mineField[i][this.alt]+".jpg";
+    this.src = "images/"+Mine.mineField[i][this.alt]+".jpg";
 });
     }
 }
@@ -1055,19 +1059,21 @@ $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('butt
     return false
  });
 
-Play.clickCell = function(K, obj){
+var Click = function(){}
+
+Click.clickCell = function(K, obj){
     $a = obj.innerHTML.substr(-4,2);
     $b = obj.innerHTML
     if ($a.substr(0,1) == '\"'){
         $a = $a.substr(-1)
     }
     if (!(obj.innerHTML.indexOf('flag')+1)){
-    obj.innerHTML = obj.innerHTML.replace('white', mineField[K][$a])
-    if (mineField[K][$a] == 0) {
-        Play.openCell(K, $a);
+    obj.innerHTML = obj.innerHTML.replace('white', Mine.mineField[K][$a])
+    if (Mine.mineField[K][$a] == 0) {
+        Open.openCell(K, $a);
     }
-    if (mineField[K][$a] == 9) {
-        Play.openAll()
+    if (Mine.mineField[K][$a] == 9) {
+        Open.openAll()
         obj.innerHTML = $b.replace('white', 'blood_mine');
 
         Play.gameOver();
@@ -1078,27 +1084,27 @@ Play.victory();
 
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').click(function(img) {
-    Play.clickCell(0, this)
+    Click.clickCell(0, this)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').click(function(img) {
-    Play.clickCell(1, this)
+    Click.clickCell(1, this)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').click(function(img) {
-    Play.clickCell(2, this)
+    Click.clickCell(2, this)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button4').click(function(img) {
-    Play.clickCell(3, this)
+    Click.clickCell(3, this)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button5').click(function(img) {
-    Play.clickCell(4, this)
+    Click.clickCell(4, this)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button6').click(function(img) {
-    Play.clickCell(5, this)
+    Click.clickCell(5, this)
 });
 
 
@@ -1111,12 +1117,12 @@ Play.isDead = function(){
         }
     });
     if (k>0) {
-        Play.openAll();
+        Open.openAll();
         Play.gameOver();
     }
 }
 
-Play.centerClick = function(K, obj, e){
+Click.centerClick = function(K, obj, e){
     if (e.which == 2){
     $a = obj.innerHTML.substr(-4,2);
     $b = obj.innerHTML
@@ -1124,19 +1130,19 @@ Play.centerClick = function(K, obj, e){
         $a = $a.substr(-1)
     }
 
-    $disposable = mineField[K][$a]
+    $disposable = Mine.mineField[K][$a]
     if (!(obj.innerHTML.indexOf('flag')+1) && !(obj.innerHTML.indexOf('white')+1)){
-        if (mineField[K][$a] == 9) {
-        Play.openAll()
+        if (Mine.mineField[K][$a] == 9) {
+        Open.openAll()
         obj.innerHTML = $b.replace('white', 'blood_mine');
 
         Play.gameOver();
     }
 
         Play.victory();
-        mineField[K][$a] = 0;
-        Play.openCell(K, $a);
-        mineField[K][$a] = $disposable
+        Mine.mineField[K][$a] = 0;
+        Open.openCell(K, $a);
+        Mine.mineField[K][$a] = $disposable
         Play.isDead();
     }
 }
@@ -1144,27 +1150,27 @@ Play.centerClick = function(K, obj, e){
 
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button1').mousedown(function(e) {
-    Play.centerClick(0, this, e)
+    Click.centerClick(0, this, e)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button2').mousedown(function(e) {
-    Play.centerClick(1, this, e)
+    Click.centerClick(1, this, e)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button3').mousedown(function(e) {
-    Play.centerClick(2, this, e)
+    Click.centerClick(2, this, e)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button4').mousedown(function(e) {
-    Play.centerClick(3, this, e)
+    Click.centerClick(3, this, e)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button5').mousedown(function(e) {
-    Play.centerClick(4, this, e)
+    Click.centerClick(4, this, e)
 });
 
 $('body').find('div.wrapper').find('div#experiment').find('div#cube').find('button.button6').mousedown(function(e) {
-    Play.centerClick(5, this, e)
+    Click.centerClick(5, this, e)
 });
 
 
